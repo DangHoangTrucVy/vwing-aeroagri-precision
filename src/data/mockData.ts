@@ -19,7 +19,7 @@ export const cropSolutions: CropSolution[] = [
       soilMoisture: '68%',
       treeCount: '3,400 gốc định danh',
       gpsStatus: 'RTK Sub-cm',
-      image: '/src/assets/images/drone_field_inspection_1791883988716.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg9d9FUl5dbZU9VnjuNDMRR7c_r4FEBA6ZLu6jZuCBPOQXQaUm2QwvkSCo&s=10',
     },
   },
   {
@@ -40,7 +40,7 @@ export const cropSolutions: CropSolution[] = [
       soilMoisture: '54%',
       treeCount: '28,000 bụi cà phê',
       gpsStatus: 'RTK Sub-cm',
-      image: '/src/assets/images/orchard_canopy_lidar_1791883989473.jpg',
+      image: 'https://giacaphe.com/wp-content/uploads/2011/04/vuon-tieu1.jpg',
     },
   },
   {
@@ -61,7 +61,7 @@ export const cropSolutions: CropSolution[] = [
       soilMoisture: '62%',
       treeCount: '1,950 cây thụ phấn',
       gpsStatus: 'RTK Sub-cm',
-      image: '/src/assets/images/hero_drone_orchard_1791883988500.jpg',
+      image: 'https://noomfood.com/wp-content/uploads/2025/03/noom-cay-macca-190325-11.jpg',
     },
   },
 ];

@@ -46,12 +46,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      <header className="sticky top-0 z-[100] w-full pointer-events-auto backdrop-blur-md bg-[#f8f9ff]/90 dark:bg-[#07131e]/90 border-b border-slate-200/70 dark:border-slate-800/80 transition-colors duration-200">
+      <header className="sticky top-0 z-100 w-full pointer-events-auto backdrop-blur-md bg-[#f8f9ff]/90 dark:bg-[#07131e]/90 border-b border-slate-200/70 dark:border-slate-800/80 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-3 sm:gap-6">
           {/* Brand Logo Zone */}
           <div
             onClick={() => handleNavClick("home", "hero-section")}
-            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group shrink-0 select-none min-h-[44px] min-w-[44px]"
+            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group shrink-0 select-none min-h-11 min-w-11"
           >
             {/* High-tech precision drone logo mark */}
 
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Đăng nhập button (Desktop) */}
             <button
               onClick={onOpenAuth}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer min-h-[44px]"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer min-h-11"
             >
               <User className="w-4 h-4 opacity-70" />
               <span>Đăng nhập</span>
@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Primary Action Button (Desktop & Tablet) */}
             <button
               onClick={onOpenDemoMission}
-              className="hidden xs:inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md shadow-emerald-500/25 transition-all duration-200 cursor-pointer active:scale-95 min-h-[40px] sm:min-h-[44px]"
+              className="hidden xs:inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md shadow-emerald-500/25 transition-all duration-200 cursor-pointer active:scale-95 min-h-10 sm:min-h-11"
             >
               <span>Trải nghiệm ngay</span>
               <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -189,7 +189,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id, item.target)}
-                  className="w-full text-left px-4 py-3.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center justify-between min-h-[48px] active:bg-emerald-100 dark:active:bg-slate-800"
+                  className="w-full text-left px-4 py-3.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center justify-between min-h-12 active:bg-emerald-100 dark:active:bg-slate-800"
                 >
                   <span>{item.label}</span>
                   <ChevronRight className="w-4 h-4 opacity-40" />
@@ -204,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setMobileMenuOpen(false);
                   onOpenDemoMission();
                 }}
-                className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 min-h-[48px] active:scale-[0.98]"
+                className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 min-h-12 active:scale-[0.98]"
               >
                 <Radio className="w-4 h-4 animate-pulse" />
                 <span>Trạm Viễn Thám Đắk Lắk #48</span>
@@ -216,7 +216,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setMobileMenuOpen(false);
                     onOpenAuth();
                   }}
-                  className="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-[44px]"
+                  className="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-11"
                 >
                   <User className="w-3.5 h-3.5" />
                   <span>Đăng nhập</span>
@@ -224,7 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 <a
                   href="tel:18006868"
-                  className="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-[44px]"
+                  className="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-11"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Gọi 1800 6868</span>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-
+import daklakImage from "../assets/images/daklak.png";
+import heroDroneImage from "../assets/images/hero_drone_orchard_1791883988500.jpg";
 interface HeroSectionProps {
   onConsultClick: () => void;
   onExploreFeatures: () => void;
@@ -124,7 +125,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Background drone aerial photography */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/hero_drone_orchard_1791883988500.jpg"
+            src={heroDroneImage}
             alt="VWING Drone bay quét vườn sầu riêng và cà phê Tây Nguyên"
             referrerPolicy="no-referrer"
             className="h-150 w-full scale-105 transform object-cover object-center opacity-45 transition-transform duration-1000 ease-out hover:scale-100"
@@ -208,7 +209,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                 <div className="relative aspect-16/10 overflow-hidden rounded-xl border border-slate-800 bg-slate-950 sm:rounded-2xl">
                   <img
-                    src="/src/assets/images/daklak.png"
+                    src={daklakImage}
                     alt="Đắk Lắk Mission | Live Feed"
                     referrerPolicy="no-referrer"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

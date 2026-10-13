@@ -86,7 +86,7 @@ export const PathogenScanModal: React.FC<PathogenScanModalProps> = ({ isOpen, on
                     <button
                       key={treeId}
                       onClick={() => setSelectedTree(treeId)}
-                      className={`relative p-1.5 sm:p-3 rounded-lg sm:rounded-xl border flex flex-col items-center justify-center transition-all cursor-pointer min-h-[44px] ${
+                      className={`relative p-1.5 sm:p-3 rounded-lg sm:rounded-xl border flex flex-col items-center justify-center transition-all cursor-pointer min-h-11 ${
                         isSelected
                           ? 'ring-2 ring-white scale-105 z-10'
                           : ''

@@ -12,8 +12,8 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ isOpen, onClose, art
   if (!isOpen || !article) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-3xl bg-white dark:bg-[#0c1a26] text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-28 pb-4 px-3 sm:px-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl bg-white dark:bg-[#0c1a26] text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 z-20 flex items-center justify-between p-5 sm:p-6 bg-white/95 dark:bg-[#0c1a26]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
           <div className="flex items-center gap-3">

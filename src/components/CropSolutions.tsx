@@ -140,14 +140,14 @@ export const CropSolutions: React.FC<CropSolutionsProps> = ({
 
       {/* Main solution card */}
       <div
-        className={`relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/5 transition-all duration-700 dark:border-slate-800 dark:bg-[#0c1a26] sm:rounded-[2rem] lg:rounded-[2.5rem] ${
+        className={`relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/5 transition-all duration-700 dark:border-slate-800 dark:bg-[#0c1a26] sm:rounded-4xl lg:rounded-[2.5rem] ${
           isVisible
             ? "translate-y-0 opacity-100"
             : "translate-y-8 opacity-0"
         }`}
       >
         {/* Top accent line */}
-        <div className="h-1 w-full bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-400" />
+        <div className="h-1 w-full bg-linear-to-r from-emerald-400 via-teal-500 to-cyan-400" />
 
         <div
           className={`grid grid-cols-1 items-center gap-8 p-5 transition-all duration-300 sm:gap-10 sm:p-8 lg:grid-cols-2 lg:gap-12 lg:p-12 ${
@@ -197,7 +197,7 @@ export const CropSolutions: React.FC<CropSolutionsProps> = ({
                   }`}
                 >
                   <span
-                    className={`block break-words font-mono text-xl font-extrabold tracking-tight transition-colors duration-300 sm:text-2xl lg:text-3xl ${
+                    className={`block wrap-break-words font-mono text-xl font-extrabold tracking-tight transition-colors duration-300 sm:text-2xl lg:text-3xl ${
                       stat.isPositive
                         ? "text-emerald-600 group-hover:text-emerald-500 dark:text-emerald-400"
                         : "text-indigo-600 group-hover:text-indigo-500 dark:text-indigo-400"
@@ -225,7 +225,7 @@ export const CropSolutions: React.FC<CropSolutionsProps> = ({
 
           {/* Right: pilot plot image */}
           <div className="min-w-0">
-            <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-900/10 dark:border-slate-700 sm:aspect-[16/12] lg:aspect-[4/5]">
+            <div className="group relative aspect-4/3 overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-900/10 dark:border-slate-700 sm:aspect-16/12 lg:aspect-4/5">
               <img
                 src={currentCrop.pilotPlot.image}
                 alt={currentCrop.pilotPlot.title}
@@ -235,7 +235,7 @@ export const CropSolutions: React.FC<CropSolutionsProps> = ({
               />
 
               {/* Image gradient */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-slate-950/30" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/10 to-slate-950/30" />
 
               {/* Image top badge */}
               <div className="absolute inset-x-3 top-3 flex items-start justify-between gap-2 sm:inset-x-4 sm:top-4">

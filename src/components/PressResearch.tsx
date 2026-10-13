@@ -155,7 +155,7 @@ useEffect(() => {
 
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
               Báo chí & Nghiên cứu
-              <span className="mt-1 block bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 bg-clip-text text-transparent">
+              <span className="mt-1 block bg-linear-to-r from-emerald-600 via-emerald-500 to-teal-400 bg-clip-text text-transparent">
                 Viễn thám nông nghiệp
               </span>
             </h2>
@@ -223,7 +223,7 @@ useEffect(() => {
             className="group mb-8 grid cursor-pointer overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-950/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-slate-800 dark:bg-[#0C1A26] dark:hover:border-emerald-800 lg:grid-cols-[1.15fr_1fr]"
           >
             {/* Featured image */}
-            <div className="relative min-h-[250px] overflow-hidden sm:min-h-[340px] lg:min-h-[390px]">
+            <div className="relative min-h-62.5 overflow-hidden sm:min-h-85 lg:min-h-97.5">
               <img
                 src={featuredArticle.image.image}
                 alt="Khung cảnh nông nghiệp và vùng canh tác"
@@ -231,7 +231,7 @@ useEffect(() => {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
 
               <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/30 bg-slate-950/35 px-3 py-2 text-xs font-semibold text-white backdrop-blur-md sm:left-6 sm:top-6">
                 <Sparkles className="h-4 w-4 text-emerald-300" />
@@ -318,7 +318,7 @@ useEffect(() => {
               className="group flex min-w-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl hover:shadow-slate-900/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-slate-800 dark:bg-[#0C1A26] dark:hover:border-emerald-800 dark:hover:shadow-black/20"
             >
               {/* Thumbnail */}
-              <div className="relative aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-slate-900">
+              <div className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img
                   src={image.image}
                   alt={`Ảnh minh họa: ${article.title}`}
@@ -326,7 +326,7 @@ useEffect(() => {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/45 to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
 
                 <span className="absolute left-3 top-3 rounded-full border border-white/30 bg-slate-950/40 px-2.5 py-1.5 text-[10px] font-semibold text-white backdrop-blur-md">
                   {image.category}
@@ -385,7 +385,7 @@ useEffect(() => {
         {/* Bottom note */}
         <div
           style={animationStyle(articles.length + 3)}
-          className="mt-8 flex flex-col gap-3 rounded-2xl border border-emerald-100 bg-gradient-to-r from-emerald-50 via-white to-sky-50 p-4 dark:border-emerald-950 dark:from-emerald-950/30 dark:via-[#0C1A26] dark:to-sky-950/20 sm:flex-row sm:items-center sm:justify-between sm:p-5"
+          className="mt-8 flex flex-col gap-3 rounded-2xl border border-emerald-100 bg-linear-to-r from-emerald-50 via-white to-sky-50 p-4 dark:border-emerald-950 dark:from-emerald-950/30 dark:via-[#0C1A26] dark:to-sky-950/20 sm:flex-row sm:items-center sm:justify-between sm:p-5"
         >
           <div className="flex items-start gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400">

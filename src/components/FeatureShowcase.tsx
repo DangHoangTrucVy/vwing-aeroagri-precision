@@ -86,12 +86,12 @@ const Spec: React.FC<{
   note: string;
   accent?: string;
 }> = ({ label, value, note, accent = "text-white" }) => (
-  <div className="min-w-0 rounded-xl border border-white/[0.08] bg-white/[0.035] p-3 transition-colors duration-300 hover:border-emerald-400/30 hover:bg-white/[0.06] sm:rounded-2xl sm:p-4">
+  <div className="min-w-0 rounded-xl border border-white/8 bg-white/[0.035] p-3 transition-colors duration-300 hover:border-emerald-400/30 hover:bg-white/6 sm:rounded-2xl sm:p-4">
     <span className="block truncate font-mono text-[9px] uppercase tracking-wider text-slate-400 sm:text-[10px]">
       {label}
     </span>
     <span
-      className={`mt-1 block break-words font-mono text-xs font-bold sm:text-sm ${accent}`}
+      className={`mt-1 block wrap-break-words font-mono text-xs font-bold sm:text-sm ${accent}`}
     >
       {value}
     </span>
@@ -112,7 +112,7 @@ const LidarPanel = () => {
     <div className="relative overflow-hidden rounded-2xl border border-emerald-400/15 bg-[#0b1c2b] p-4 shadow-2xl shadow-emerald-950/20 sm:rounded-3xl sm:p-6">
       <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-400/10 blur-3xl" />
 
-      <div className="relative flex items-center justify-between gap-3 border-b border-white/[0.08] pb-4">
+      <div className="relative flex items-center justify-between gap-3 border-b border-white/8 pb-4">
         <div className="flex items-center gap-2">
           <Activity className="h-4 w-4 text-emerald-400" />
           <span className="text-xs text-slate-300">Tần số xung LiDAR</span>
@@ -141,7 +141,7 @@ const LidarPanel = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-2 border-t border-white/[0.08] pt-4 text-center">
+      <div className="grid grid-cols-3 gap-2 border-t border-white/8 pt-4 text-center">
         <div>
           <p className="font-mono text-[9px] text-slate-400">NDVI</p>
           <p className="mt-1 font-mono text-base font-bold text-emerald-400 sm:text-xl">
@@ -196,8 +196,8 @@ const PathogenPanel = () => (
         />
       ))}
 
-      <div className="absolute h-px w-full rotate-45 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
-      <div className="absolute h-px w-full -rotate-45 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+      <div className="absolute h-px w-full rotate-45 bg-linear-to-r from-transparent via-emerald-400/50 to-transparent" />
+      <div className="absolute h-px w-full -rotate-45 bg-linear-to-r from-transparent via-emerald-400/50 to-transparent" />
 
       {[
         "left-[20%] top-[25%]",
@@ -440,13 +440,13 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
 
       {/* SECTION 01 — LiDAR / NDVI */}
       <div className="relative w-full px-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f7f9fc] via-emerald-50/50 to-[#f7f9fc] transition-colors duration-500 dark:from-[#07131e] dark:via-[#09221f] dark:to-[#07131e]" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#f7f9fc] via-emerald-50/50 to-[#f7f9fc] transition-colors duration-500 dark:from-[#07131e] dark:via-[#09221f] dark:to-[#07131e]" />
 
         <div className="relative mx-auto w-full max-w-none px-0">
           <Reveal>
             <div className="relative overflow-hidden rounded-none border border-slate-800 bg-[#07131e] p-5 text-white shadow-2xl shadow-slate-900/10 sm:p-8 lg:p-12 xl:p-16">
               <div className="pointer-events-none absolute -right-20 -top-24 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-32 left-1/4 h-72 w-72 rounded-full bg-cyan-500/[0.06] blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-32 left-1/4 h-72 w-72 rounded-full bg-cyan-500/6 blur-3xl" />
 
               <div className="relative flex flex-col gap-3 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between sm:pb-7">
                 <div className="flex items-center gap-2 font-mono text-[10px] font-bold tracking-wider text-emerald-400 sm:text-xs">
@@ -531,7 +531,7 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
       <div className="relative mt-8 w-full py-6 sm:mt-12 sm:py-10 lg:mt-16">
         <div className="relative mx-auto w-full px-3 sm:px-6 lg:px-10">
           <Reveal>
-            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-rose-100 bg-white/90 p-5 shadow-xl shadow-rose-900/[0.04] sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-[2rem] lg:p-12 xl:p-16">
+            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-rose-100 bg-white/90 p-5 shadow-xl shadow-rose-900/4 sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-4xl lg:p-12 xl:p-16">
               <div className="space-y-6">
                 <Reveal delay={80}>
                   <Eyebrow number="02." color="rose">
@@ -608,7 +608,7 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
       <div className="relative mt-8 w-full py-6 sm:mt-12 sm:py-10 lg:mt-16">
         <div className="relative mx-auto w-full px-3 sm:px-6 lg:px-10">
           <Reveal>
-            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-cyan-100 bg-white p-5 shadow-xl shadow-cyan-900/[0.04] sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-[2rem] lg:p-12 xl:p-16">
+            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-cyan-100 bg-white p-5 shadow-xl shadow-cyan-900/4 sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-4xl lg:p-12 xl:p-16">
               <div className="space-y-6">
                 <Reveal delay={80}>
                   <Eyebrow number="03." color="cyan">
@@ -679,7 +679,7 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
       <div className="relative mt-8 w-full py-6 sm:mt-12 sm:py-10 lg:mt-16">
         <div className="relative mx-auto w-full px-3 sm:px-6 lg:px-10">
           <Reveal>
-            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-indigo-100 bg-white/95 p-5 shadow-xl shadow-indigo-900/[0.04] sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-[2rem] lg:p-12 xl:p-16">
+            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-indigo-100 bg-white/95 p-5 shadow-xl shadow-indigo-900/4 sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-4xl lg:p-12 xl:p-16">
               <div className="space-y-6">
                 <Reveal delay={80}>
                   <Eyebrow number="04." color="indigo">
