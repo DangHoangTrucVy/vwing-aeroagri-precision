@@ -208,8 +208,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                 <div className="relative aspect-16/10 overflow-hidden rounded-xl border border-slate-800 bg-slate-950 sm:rounded-2xl">
                   <img
-                    src="/src/assets/images/drone_field_inspection_1791883988716.jpg"
-                    alt="Đắk Lắk Mission #48 Live Feed"
+                    src="/src/assets/images/daklak.png"
+                    alt="Đắk Lắk Mission | Live Feed"
                     referrerPolicy="no-referrer"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
