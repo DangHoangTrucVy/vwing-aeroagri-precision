@@ -1,0 +1,6 @@
+{
+  "name": "VWING AeroAgri Precision",
+  "description": "Nền tảng drone viễn thám đa quang phổ NDVI, quét 3D tán dốc và chuẩn đoán nấm bệnh cho cây trồng thân gỗ và cây lâu năm tại Việt Nam.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
