@@ -156,7 +156,7 @@ useEffect(() => {
         className="pointer-events-none absolute -right-40 bottom-0 -z-10 h-96 w-96 rounded-full bg-teal-400/10 blur-[100px]"
       />
 
-      <div className="mx-auto max-w-[1440px]">
+      <div className="mx-auto max-w-360">
         {/* Section heading */}
         <div
           style={reveal(0)}
@@ -170,7 +170,7 @@ useEffect(() => {
 
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
               Đưa công nghệ đến
-              <span className="mt-1 block bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 bg-clip-text text-transparent">
+              <span className="mt-1 block bg-linear-to-r from-emerald-600 via-emerald-500 to-teal-400 bg-clip-text text-transparent">
                 tận vườn của bạn
               </span>
             </h2>
@@ -201,16 +201,16 @@ useEffect(() => {
             style={reveal(150)}
             className="flex min-w-0 flex-col lg:col-span-7"
           >
-            <div className="group relative min-h-[320px] flex-1 overflow-hidden rounded-[28px] bg-[#10271D] shadow-xl shadow-emerald-950/10 sm:min-h-[430px] lg:min-h-[500px]">
+            <div className="group relative min-h-80 flex-1 overflow-hidden rounded-[28px] bg-[#10271D] shadow-xl shadow-emerald-950/10 sm:min-h-107.5 lg:min-h-125">
               <img
                 src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85"
                 alt="Cảnh quan nông trại xanh nhìn từ trên cao"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-125 ease-out group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061710] via-[#061710]/45 to-[#061710]/5" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#061710]/45 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#061710] via-[#061710]/45 to-[#061710]/5" />
+              <div className="absolute inset-0 bg-linear-to-r from-[#061710]/45 via-transparent to-transparent" />
 
               {/* Floating satellite indicator */}
               <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-xl sm:left-7 sm:top-7">
@@ -314,7 +314,7 @@ useEffect(() => {
           <div style={reveal(300)} className="min-w-0 lg:col-span-5">
             <div className="relative h-full overflow-hidden rounded-[28px] border border-slate-200/80 bg-white shadow-xl shadow-slate-900/5 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0C1A26]">
               {/* Form accent */}
-              <div className="h-1.5 w-full bg-gradient-to-r from-emerald-600 via-emerald-400 to-teal-300" />
+              <div className="h-1.5 w-full bg-linear-to-r from-emerald-600 via-emerald-400 to-teal-300" />
 
               <div className="p-5 sm:p-7 lg:p-8">
                 <div className="mb-7">
@@ -549,9 +549,9 @@ useEffect(() => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="group relative flex min-h-[54px] w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-emerald-700 hover:to-emerald-600 hover:shadow-xl hover:shadow-emerald-600/25 active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
+                      className="group relative flex min-h-13.5 w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-linear-to-r from-emerald-600 to-emerald-500 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-emerald-700 hover:to-emerald-600 hover:shadow-xl hover:shadow-emerald-600/25 active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                      <span className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
                       {loading ? (
                         <>

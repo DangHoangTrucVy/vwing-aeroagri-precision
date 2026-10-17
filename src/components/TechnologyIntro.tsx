@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { Layers, ScanLine, Sprout, ArrowDownRight } from "lucide-react";
 
@@ -20,7 +19,7 @@ export const TechnologyIntro: React.FC = () => {
       {
         threshold: 0.2,
         rootMargin: "0px 0px -40px 0px",
-      }
+      },
     );
 
     observer.observe(section);
@@ -44,7 +43,7 @@ export const TechnologyIntro: React.FC = () => {
       <div className="pointer-events-none absolute right-0 top-10 -z-10 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 -z-10 h-48 w-48 rounded-full bg-teal-400/10 blur-3xl" />
 
-      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-12 lg:gap-8">
         {/* Left: Main introduction */}
         <div className="lg:col-span-7">
           {/* Kicker */}
@@ -73,13 +72,10 @@ export const TechnologyIntro: React.FC = () => {
           {/* Description */}
           <p
             style={reveal(300)}
-            className="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg"
+            className="-mt-4 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg"
           >
-            Khác biệt hoàn toàn so với nông nghiệp lúa nước, vườn cây lâu năm
-            đòi hỏi phân tích cấu trúc tán 3D, độ ẩm sâu và lịch sử dinh dưỡng
-            theo từng năm của từng cá thể cây. VWing kết hợp công nghệ viễn
-            thám và AI để biến dữ liệu phức tạp thành thông tin hữu ích cho
-            người làm nông nghiệp.
+            Khám phá sức khỏe cây trồng qua dữ liệu drone và AI, giúp quản lý
+            vườn cây hiệu quả và chính xác hơn.
           </p>
 
           {/* Supporting line */}
@@ -89,16 +85,13 @@ export const TechnologyIntro: React.FC = () => {
           >
             <ScanLine className="h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
             <p className="text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-200 sm:text-base">
-              Từ dữ liệu viễn thám đến góc nhìn chi tiết trên từng gốc cây.
+              Quan sát · Phân tích · Tối ưu
             </p>
           </div>
         </div>
 
         {/* Right: Technology highlight */}
-        <div
-          style={reveal(250)}
-          className="relative lg:col-span-5"
-        >
+        <div style={reveal(250)} className="relative lg:col-span-5">
           <div className="relative overflow-hidden rounded-3xl border border-emerald-900/10 bg-linear-to-br from-[#0b1d25] via-[#102c31] to-[#071820] p-6 text-white shadow-[0_24px_70px_rgba(15,23,42,0.16)] sm:p-8 lg:p-9">
             {/* Decorative rings */}
             <div className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full border border-emerald-400/15" />
@@ -113,7 +106,7 @@ export const TechnologyIntro: React.FC = () => {
                 <Sprout className="h-6 w-6 text-emerald-400" />
               </div>
 
-              <div className="mt-10">
+              <div className="mt-8">
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
                   DATA-DRIVEN FARMING
                 </p>
@@ -125,8 +118,8 @@ export const TechnologyIntro: React.FC = () => {
                 </h3>
 
                 <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-                  Kết nối hình ảnh drone, dữ liệu cây trồng và lịch sử chăm sóc
-                  để hỗ trợ quản lý vườn khoa học hơn.
+                  Kết nối drone, dữ liệu cây trồng và AI trong một hệ sinh thái
+                  thông minh.
                 </p>
               </div>
 

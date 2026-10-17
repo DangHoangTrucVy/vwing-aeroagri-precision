@@ -51,8 +51,15 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   `}
     >
       {/* Vòng tròn ánh sáng phía sau logo */}
-      <div className="absolute left-1/2 top-1/2 h-75 w-75 -translate-x-1/2 -translate-y-1/2 rounded-full border border-emerald-400/20 sm:h-90 sm:w-90">
-        <div className="absolute inset-8 rounded-full border border-emerald-300/6" />
+      <div className="vwing-orbit absolute left-1/2 top-1/2 h-75 w-75 -translate-x-1/2 -translate-y-1/2 rounded-full border border-emerald-400/30 sm:h-90 sm:w-90">
+        {/* Vòng tròn bên trong */}
+        <div className="vwing-orbit-inner absolute inset-8 rounded-full border border-emerald-300/15" />
+
+        {/* Vòng sáng xoay */}
+        <div className="vwing-orbit-glow absolute -inset-3 rounded-full border border-transparent border-t-emerald-400/80 border-r-emerald-300/30" />
+
+        {/* Hạt sáng trên quỹ đạo */}
+        <div className="vwing-orbit-dot absolute left-1/2 -top-1 h-2 w-2 rounded-full bg-emerald-300" />
       </div>
 
       {/* Nội dung loading */}
@@ -80,8 +87,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             VW<span className="text-emerald-400">ING</span>
           </h1>
 
-          <p className="mt-2 text-center text-[10px] font-medium tracking-[0.22em] text-slate-400 sm:text-xs">
-            AEROAGRI SYSTEM · PRECISION FLIGHT
+          <p className="mt-2 text-center text-[10px] font-medium  text-emerald-400 sm:text-xs">
+            Phát triển thông minh hơn cùng VWING
           </p>
         </div>
 
@@ -105,11 +112,6 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           </span>
         </div>
       </div>
-
-      {/* Footer */}
-      <p className="absolute bottom-6 left-4 right-4 text-center text-[9px] tracking-[0.14em] text-slate-600 sm:bottom-7 sm:text-[10px]">
-        SMART AGRICULTURE AUTOMATION FRAMEWORK
-      </p>
     </div>
   );
 }
