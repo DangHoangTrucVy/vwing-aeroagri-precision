@@ -478,10 +478,8 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
 
                   <Reveal delay={220}>
                     <p className="max-w-2xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8 lg:text-lg">
-                      Tái hiện bản đồ sinh khối lá, phân tích mức độ diệp lục
-                      quang hợp và mật độ cành bằng cảm biến LiDAR quét 1.4
-                      triệu xung/giây kết hợp camera đa phổ 5 băng tần chuyên
-                      dụng.
+                      Phân tích sức khỏe cây trồng qua LiDAR 3D và camera đa
+                      phổ.
                     </p>
                   </Reveal>
 
@@ -527,12 +525,24 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
         </div>
       </div>
 
-      {/* SECTION 02 — AI Pathogen */}
-      <div className="relative mt-8 w-full py-6 sm:mt-12 sm:py-10 lg:mt-16">
-        <div className="relative mx-auto w-full px-3 sm:px-6 lg:px-10">
+      {/* SECTIONS 02–04 — Technology Cards */}
+
+      <div className="relative mx-auto w-full max-w-350 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+        <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {/* SECTION 02 — AI Pathogen */}
           <Reveal>
-            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-rose-100 bg-white/90 p-5 shadow-xl shadow-rose-900/4 sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-4xl lg:p-12 xl:p-16">
-              <div className="space-y-6">
+            <article
+              className="group relative isolate flex min-h-155 flex-col overflow-hidden rounded-3xl border border-rose-200/20 bg-slate-950 p-6 text-white shadow-xl sm:p-8"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to bottom, rgba(8,15,28,0.35) 0%, rgba(8,15,28,0.75) 48%, rgba(8,15,28,0.97) 100%), url('/images/pathogen-bg.jpg')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-rose-500/10 to-transparent transition duration-500 group-hover:from-rose-500/20" />
+
+              <div className="relative flex flex-1 flex-col">
                 <Reveal delay={80}>
                   <Eyebrow number="02." color="rose">
                     <ShieldAlert className="inline h-3.5 w-3.5" /> CHẨN ĐOÁN AI
@@ -541,75 +551,78 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
                 </Reveal>
 
                 <Reveal delay={150}>
-                  <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+                  <h2 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                     Cảnh Báo Nấm
                     <br />
-                    <span className="text-rose-500">Khẩn Cấp</span>
+                    <span className="text-rose-400">Khẩn Cấp</span>
                   </h2>
                 </Reveal>
 
                 <Reveal delay={220}>
-                  <p className="text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 lg:text-lg">
-                    Mô hình trí tuệ nhân tạo phân tích quang phổ hồng ngoại và
-                    nhiệt độ tán để hỗ trợ phát hiện Phytophthora gây xì mủ sầu
-                    riêng, rệp sáp đục cành và bệnh thán thư từ giai đoạn sớm.
+                  <p className="mt-4 text-sm leading-7 text-slate-200">
+                    Hỗ trợ phát hiện sớm dấu hiệu bệnh và xác định khu vực cây
+                    trồng.
                   </p>
                 </Reveal>
 
                 <Reveal delay={280}>
-                  <div className="grid grid-cols-3 gap-3 border-y border-slate-200 py-5">
+                  <div className="mt-6 grid grid-cols-3 gap-3 border-y border-white/20 py-5">
                     <div>
-                      <p className="text-xl font-extrabold text-slate-900 sm:text-3xl">
+                      <p className="text-xl font-extrabold sm:text-2xl">
                         &lt; 24h
                       </p>
-                      <p className="mt-2 text-[10px] leading-5 text-slate-500 sm:text-xs">
-                        Thời gian cảnh báo mục tiêu
+                      <p className="mt-2 text-[8px] leading-5 text-slate-300 sm:text-xs">
+                        Thời gian cảnh báo 
                       </p>
                     </div>
                     <div>
-                      <p className="text-xl font-extrabold text-emerald-600 sm:text-3xl">
+                      <p className="text-xl font-extrabold text-emerald-400 sm:text-2xl">
                         98.5%
                       </p>
-                      <p className="mt-2 text-[10px] leading-5 text-slate-500 sm:text-xs">
-                        Độ chính xác mục tiêu
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Độ chính xác 
                       </p>
                     </div>
                     <div>
-                      <p className="text-xl font-extrabold text-rose-500 sm:text-3xl">
+                      <p className="text-xl font-extrabold text-rose-400 sm:text-2xl">
                         AI
                       </p>
-                      <p className="mt-2 text-[10px] leading-5 text-slate-500 sm:text-xs">
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-[10px]">
                         Phân tích dấu hiệu bệnh
                       </p>
                     </div>
                   </div>
                 </Reveal>
 
-                <Reveal delay={340}>
-                  <button
-                    onClick={onOpenPathogenModal}
-                    className="group flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-rose-600 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-500 sm:w-fit"
-                  >
-                    Tìm hiểu mô hình cảnh báo AI
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </Reveal>
+                <div className="mt-auto pt-6">
+                  <Reveal delay={340}>
+                    <button
+                      onClick={onOpenPathogenModal}
+                      className="group/btn flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-rose-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-rose-500"
+                    >
+                      Tìm hiểu cảnh báo AI
+                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/btn:translate-x-1" />
+                    </button>
+                  </Reveal>
+                </div>
               </div>
-
-              <Reveal delay={180}>
-                <PathogenPanel />
-              </Reveal>
-            </div>
+            </article>
           </Reveal>
-        </div>
-      </div>
 
-      {/* SECTION 03 — Terrain Following */}
-      <div className="relative mt-8 w-full py-6 sm:mt-12 sm:py-10 lg:mt-16">
-        <div className="relative mx-auto w-full px-3 sm:px-6 lg:px-10">
-          <Reveal>
-            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-cyan-100 bg-white p-5 shadow-xl shadow-cyan-900/4 sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-4xl lg:p-12 xl:p-16">
-              <div className="space-y-6">
+          {/* SECTION 03 — Terrain Following */}
+          <Reveal delay={100}>
+            <article
+              className="group relative isolate flex min-h-155 flex-col overflow-hidden rounded-3xl border border-cyan-200/20 bg-slate-950 p-6 text-white shadow-xl sm:p-8"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to bottom, rgba(5,19,30,0.30) 0%, rgba(5,19,30,0.72) 48%, rgba(5,19,30,0.97) 100%), url('/images/terrain-bg.jpg')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-cyan-500/10 to-transparent transition duration-500 group-hover:from-cyan-500/20" />
+
+              <div className="relative flex flex-1 flex-col">
                 <Reveal delay={80}>
                   <Eyebrow number="03." color="cyan">
                     <Compass className="inline h-3.5 w-3.5" /> CÔNG NGHỆ ĐỊA
@@ -618,69 +631,78 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
                 </Reveal>
 
                 <Reveal delay={150}>
-                  <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+                  <h2 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                     Bay Bám
                     <br />
-                    <span className="text-cyan-600">Địa Hình Dốc 3D</span>
+                    <span className="text-cyan-300">Địa Hình Dốc 3D</span>
                   </h2>
                 </Reveal>
 
                 <Reveal delay={220}>
-                  <p className="text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 lg:text-lg">
-                    Cảm biến Terrain-Follow Radar sóng milimet kết hợp LiDAR
-                    giúp theo dõi địa hình theo thời gian thực, hỗ trợ duy trì
-                    khoảng cách vòi phun trên các triền đồi dốc Tây Nguyên.
+                  <p className="mt-4 text-sm leading-7 text-slate-200">
+                    Theo dõi địa hình, hỗ trợ drone duy trì khoảng cách ổn định
+                    khi bay.
                   </p>
                 </Reveal>
 
                 <Reveal delay={280}>
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                    <Spec
-                      label="Độ dốc"
-                      value="Tới 45°"
-                      note="Địa hình đồi"
-                      accent="text-cyan-600"
-                    />
-                    <Spec
-                      label="Khoảng cách"
-                      value="1.5 m"
-                      note="Mục tiêu mô phỏng"
-                      accent="text-cyan-600"
-                    />
-                    <Spec
-                      label="Tốc độ phủ"
-                      value="4.5 ha/h"
-                      note="Thông số mục tiêu"
-                      accent="text-emerald-600"
-                    />
+                  <div className="mt-6 grid grid-cols-3 gap-3 border-y border-white/20 py-5">
+                    <div>
+                      <p className="text-xl font-extrabold text-cyan-300 sm:text-2xl">
+                        Tới 45°
+                      </p>
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Địa hình đồi
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-extrabold text-cyan-300 sm:text-2xl">
+                        1.5 m
+                      </p>
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Mục tiêu mô phỏng
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-extrabold text-emerald-300 sm:text-2xl">
+                        4.5 ha/h
+                      </p>
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Thông số mục tiêu
+                      </p>
+                    </div>
                   </div>
                 </Reveal>
 
-                <Reveal delay={340}>
-                  <button
-                    onClick={onOpenTerrainModal}
-                    className="group flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-cyan-700 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-600 sm:w-fit"
-                  >
-                    Xem cơ chế bay bám địa hình
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </Reveal>
+                <div className="mt-auto pt-6">
+                  <Reveal delay={340}>
+                    <button
+                      onClick={onOpenTerrainModal}
+                      className="group/btn flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-cyan-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-cyan-500"
+                    >
+                      Xem công nghệ bay bám
+                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/btn:translate-x-1" />
+                    </button>
+                  </Reveal>
+                </div>
               </div>
-
-              <Reveal delay={180}>
-                <TerrainPanel />
-              </Reveal>
-            </div>
+            </article>
           </Reveal>
-        </div>
-      </div>
 
-      {/* SECTION 04 — Farm Passport */}
-      <div className="relative mt-8 w-full py-6 sm:mt-12 sm:py-10 lg:mt-16">
-        <div className="relative mx-auto w-full px-3 sm:px-6 lg:px-10">
-          <Reveal>
-            <div className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-indigo-100 bg-white/95 p-5 shadow-xl shadow-indigo-900/4 sm:rounded-3xl sm:p-8 lg:grid-cols-2 lg:gap-14 lg:rounded-4xl lg:p-12 xl:p-16">
-              <div className="space-y-6">
+          {/* SECTION 04 — Farm Passport */}
+          <Reveal delay={200}>
+            <article
+              className="group relative isolate flex min-h-155 flex-col overflow-hidden rounded-3xl border border-indigo-200/20 bg-slate-950 p-6 text-white shadow-xl sm:p-8"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to bottom, rgba(12,12,35,0.30) 0%, rgba(12,12,35,0.75) 48%, rgba(12,12,35,0.97) 100%), url('/images/farm-passport-bg.jpg')",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-indigo-500/10 to-transparent transition duration-500 group-hover:from-indigo-500/20" />
+
+              <div className="relative flex flex-1 flex-col">
                 <Reveal delay={80}>
                   <Eyebrow number="04." color="indigo">
                     <FileCheck2 className="inline h-3.5 w-3.5" /> TRUY XUẤT
@@ -689,59 +711,62 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
                 </Reveal>
 
                 <Reveal delay={150}>
-                  <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+                  <h2 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
                     Mã Vùng Trồng
                     <br />
-                    <span className="text-indigo-600">& Nhật Ký AI</span>
+                    <span className="text-indigo-300">Nhật Ký AI</span>
                   </h2>
                 </Reveal>
 
                 <Reveal delay={220}>
-                  <p className="text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 lg:text-lg">
-                    Số hóa nhật ký canh tác, lưu trữ dữ liệu chăm sóc và hỗ trợ
-                    truy xuất nguồn gốc theo từng vùng trồng. Dữ liệu minh bạch
-                    giúp chuẩn bị hồ sơ phục vụ các tiêu chuẩn thị trường.
+                  <p className="mt-4 text-sm leading-7 text-slate-200">
+                    Số hóa nhật ký chăm sóc và hỗ trợ truy xuất nguồn gốc theo
+                    vùng.
                   </p>
                 </Reveal>
 
                 <Reveal delay={280}>
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                    <Spec
-                      label="Tiêu chuẩn"
-                      value="GlobalGAP"
-                      note="Hỗ trợ hồ sơ"
-                      accent="text-indigo-600"
-                    />
-                    <Spec
-                      label="Định danh"
-                      value="GPS"
-                      note="Vị trí vườn cây"
-                      accent="text-indigo-600"
-                    />
-                    <Spec
-                      label="Nhật ký"
-                      value="Digital"
-                      note="Lưu trữ số"
-                      accent="text-emerald-600"
-                    />
+                  <div className="mt-6 grid grid-cols-3 gap-3 border-y border-white/20 py-5">
+                    <div>
+                      <p className="text-lg font-extrabold text-indigo-300 sm:text-xl">
+                        Global
+                      </p>
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Hỗ trợ hồ sơ
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-extrabold text-indigo-300 sm:text-2xl">
+                        GPS
+                      </p>
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Vị trí vườn cây
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-extrabold text-emerald-300 sm:text-xl">
+                        Digital
+                      </p>
+                      <p className="mt-2 text-[10px] leading-5 text-slate-300 sm:text-xs">
+                        Lưu trữ số
+                      </p>
+                    </div>
                   </div>
                 </Reveal>
 
-                <Reveal delay={340}>
-                  <button
-                    onClick={onOpenPassportModal}
-                    className="group flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-indigo-600 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-500 sm:w-fit"
-                  >
-                    Tìm hiểu mã vùng trồng
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </Reveal>
+                <div className="mt-auto pt-6">
+                  <Reveal delay={340}>
+                    <button
+                      onClick={onOpenPassportModal}
+                      className="group/btn flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-indigo-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-indigo-500"
+                    >
+                      Tìm hiểu mã vùng trồng
+                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/btn:translate-x-1" />
+                    </button>
+                  </Reveal>
+                </div>
               </div>
-
-              <Reveal delay={180}>
-                <PassportPanel />
-              </Reveal>
-            </div>
+            </article>
           </Reveal>
         </div>
       </div>

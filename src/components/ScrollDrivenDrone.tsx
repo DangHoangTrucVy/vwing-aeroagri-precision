@@ -254,6 +254,51 @@ export default function ScrollDrivenDrone() {
           }}
         />
 
+        {/* Subtle agricultural field grid */}
+        <div
+          className="vwing-field-grid absolute inset-0"
+          style={{
+            backgroundImage: `
+      linear-gradient(rgba(110,231,183,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110,231,183,0.045) 1px, transparent 1px)
+    `,
+            backgroundSize: "64px 64px",
+            maskImage:
+              "radial-gradient(ellipse at center, black 5%, transparent 78%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 5%, transparent 78%)",
+          }}
+        />
+
+        {/* Soft green light on the left */}
+        <div
+          className="absolute left-[-20%] top-[15%] h-[55vh] w-[55vw] rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(16,185,129,0.10), transparent 70%)",
+          }}
+        />
+
+        {/* Radar rings */}
+        <div className="vwing-radar absolute right-[8%] top-[20%] aspect-square w-[min(58vw,480px)] rounded-full">
+          <div className="absolute inset-[12%] rounded-full border border-emerald-300/10" />
+          <div className="absolute inset-[28%] rounded-full border border-emerald-300/15" />
+          <div className="absolute inset-[44%] rounded-full border border-emerald-300/20" />
+
+          <div className="vwing-radar-sweep absolute inset-0 rounded-full" />
+
+          <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-emerald-200 shadow-[0_0_14px_rgba(110,231,183,0.9)]" />
+          <span className="absolute bottom-[18%] left-[17%] h-1.5 w-1.5 rounded-full bg-emerald-300/80 shadow-[0_0_10px_rgba(110,231,183,0.8)]" />
+        </div>
+
+        {/* Small precision markers */}
+        <div className="absolute left-[6%] top-[20%] hidden sm:block">
+          <div className="mb-2 h-px w-12 bg-emerald-300/40" />
+          <p className="text-[9px] uppercase tracking-[0.3em] text-emerald-100/40">
+            Nông nghiệp chính xác
+          </p>
+        </div>
+
         {/* Animated topographic lines */}
         <svg
           aria-hidden="true"
@@ -324,6 +369,57 @@ export default function ScrollDrivenDrone() {
         {/* Extra atmospheric glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_85%,rgba(61,180,127,0.12),transparent_42%)]" />
 
+        {/* Agricultural field parcel map */}
+        <svg
+          aria-hidden="true"
+          className="vwing-field-map absolute inset-x-0 bottom-0 h-[38%] w-full"
+          viewBox="0 0 1440 340"
+          preserveAspectRatio="xMidYMax slice"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="fieldMapFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#10B981" stopOpacity="0" />
+              <stop offset="55%" stopColor="#10B981" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="#10B981" stopOpacity="0.18" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M0 105 L180 75 L330 112 L490 58 L650 96 L820 45 L1010 83 L1200 48 L1440 95 V340 H0 Z"
+            fill="url(#fieldMapFade)"
+          />
+
+          <g stroke="#34D399" strokeWidth="1" strokeOpacity="0.32">
+            <path d="M0 180 L180 140 L350 165 L510 115 L680 155 L850 100 L1030 145 L1210 105 L1440 145" />
+            <path d="M0 235 L180 195 L350 220 L510 170 L680 210 L850 155 L1030 200 L1210 160 L1440 200" />
+            <path d="M0 290 L180 250 L350 275 L510 225 L680 265 L850 210 L1030 255 L1210 215 L1440 255" />
+
+            <path d="M130 95 L180 140 L180 195 L220 255 L250 340" />
+            <path d="M330 112 L350 165 L350 220 L400 275 L430 340" />
+            <path d="M490 58 L510 115 L510 170 L550 225 L580 340" />
+            <path d="M650 96 L680 155 L680 210 L720 265 L750 340" />
+            <path d="M820 45 L850 100 L850 155 L900 210 L930 340" />
+            <path d="M1010 83 L1030 145 L1030 200 L1080 255 L1110 340" />
+            <path d="M1200 48 L1210 105 L1210 160 L1260 215 L1290 340" />
+          </g>
+
+          <g fill="#6EE7B7" fillOpacity="0.7">
+            <circle cx="180" cy="195" r="3" />
+            <circle cx="510" cy="170" r="3" />
+            <circle cx="850" cy="155" r="3" />
+            <circle cx="1210" cy="160" r="3" />
+          </g>
+
+          <path
+            d="M180 195 C290 170 360 240 510 170 S730 235 850 155 S1080 225 1210 160"
+            stroke="#6EE7B7"
+            strokeWidth="1.5"
+            strokeDasharray="5 8"
+            strokeOpacity="0.75"
+          />
+        </svg>
+
         {/* Logo and intro text */}
         <div
           className="absolute inset-0 flex items-center justify-start px-7 sm:px-14 lg:px-[10vw]"
@@ -347,7 +443,7 @@ export default function ScrollDrivenDrone() {
               </div>
 
               <span className="text-6xl font-semibold tracking-[-0.07em] text-white drop-shadow-[0_0_30px_rgba(110,231,183,0.15)] sm:text-8xl">
-                VWing
+                VW<span className="text-emerald-400">ING</span>
               </span>
             </div>
 
@@ -370,21 +466,68 @@ export default function ScrollDrivenDrone() {
           </div>
         </div>
 
+        {/* Field mapping coordinates */}
+        <div className="vwing-telemetry absolute bottom-[9%] left-[4%] hidden sm:block">
+          <div className="flex items-center gap-2 text-emerald-200/80">
+            <span className="text-lg">⌖</span>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.24em]">
+              Ánh xạ trường
+            </span>
+          </div>
+          <p className="mt-2 pl-6 font-mono text-[10px] tracking-wider text-emerald-100/55">
+            10.7626° N
+          </p>
+          <p className="mt-1 pl-6 font-mono text-[10px] tracking-wider text-emerald-100/55">
+            106.6602° E
+          </p>
+        </div>
+
+        {/* Flight route timeline */}
+        <div className="vwing-telemetry absolute bottom-[5%] left-1/2 hidden w-[34%] -translate-x-1/2 items-center justify-between sm:flex">
+          {[
+            { label: "Bắt đầu", active: false },
+            { label: "Lộ trình bay ", active: true },
+            { label: "Trở lại", active: false },
+          ].map((point, index) => (
+            <div
+              key={point.label}
+              className="relative flex flex-col items-center gap-2"
+            >
+              <span
+                className={`h-2.5 w-2.5 rounded-full border ${
+                  point.active
+                    ? "border-emerald-200 bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.8)]"
+                    : "border-emerald-300/50 bg-[#0b292a]"
+                }`}
+              />
+              <span className="text-[9px] tracking-[0.16em] text-emerald-100/65">
+                {point.label}
+              </span>
+            </div>
+          ))}
+          <div className="absolute left-[10%] right-[10%] top-1.25 -z-10 border-t border-dashed border-emerald-300/40" />
+        </div>
+
+        {/* Field identification */}
+        <div className="vwing-telemetry absolute bottom-[9%] right-[4%] hidden text-right sm:block">
+          <div className="ml-auto mt-2 flex gap-1">
+            {Array.from({ length: 8 }, (_, i) => (
+              <span
+                key={i}
+                className={`h-3 w-0.75 rounded-full ${
+                  i < 5 ? "bg-emerald-300/70" : "bg-emerald-300/15"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Scroll hint */}
         <div
           className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-white/50"
           style={{ opacity: Math.max(0, 1 - introProgress * 1.5) }}
         >
           <span className="animate-bounce text-lg">↓</span>
-        </div>
-
-        <div className="absolute right-8 top-8 hidden text-right sm:block">
-          <p className="text-[10px] tracking-[0.24em] text-emerald-200/70">
-            AEROAGRI SYSTEM
-          </p>
-          <p className="mt-2 text-xs tracking-widest text-white/40">
-            PRECISION FLIGHT · 01
-          </p>
         </div>
 
         <div className="absolute inset-0 border border-white/[0.035]" />
@@ -488,6 +631,101 @@ export default function ScrollDrivenDrone() {
             animation: none !important;
           }
         }
+
+
+.vwing-radar {
+  border: 1px solid rgba(110, 231, 183, 0.12);
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.035),
+    transparent 68%
+  );
+  opacity: 0.8;
+  animation: vwing-radar-breathe 5s ease-in-out infinite;
+}
+
+.vwing-radar-sweep {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 285deg,
+    rgba(110, 231, 183, 0.015) 315deg,
+    rgba(110, 231, 183, 0.16) 360deg
+  );
+  animation: vwing-radar-rotate 12s linear infinite;
+  mask-image: radial-gradient(
+    circle,
+    transparent 0%,
+    black 100%
+  );
+}
+
+.vwing-field-grid {
+  animation: vwing-grid-breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes vwing-radar-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes vwing-radar-breathe {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes vwing-grid-breathe {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vwing-radar,
+  .vwing-radar-sweep,
+  .vwing-field-grid {
+    animation: none !important;
+  }
+}
+
+<CodeBlock language="css" editable>
+.vwing-field-map {
+  opacity: 0.9;
+  pointer-events: none;
+  animation: vwing-map-glow 7s ease-in-out infinite alternate;
+}
+.vwing-telemetry {
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: 0 0 12px rgba(52, 211, 153, 0.12);
+}
+@keyframes vwing-map-glow {
+  from {
+    opacity: 0.55;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vwing-field-map {
+    animation: none !important;
+  }
+}
+</CodeBlock>
+
       `}</style>
     </>
   );

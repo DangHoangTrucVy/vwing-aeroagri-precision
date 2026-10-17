@@ -26,6 +26,12 @@ import ScrollDrivenDrone from "./components/ScrollDrivenDrone";
 
 import SplashScreen from "./components/SplashScreen";
 
+import ConsultationPopup from "./components/ConsultationPopup";
+
+import FloatingContact from "./components/FloatingContact";
+
+import PricingSection from "./components/PricingSection";
+
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
@@ -154,10 +160,15 @@ export default function App() {
           onSelectArticle={(article) => setSelectedArticle(article)}
         />
 
+        <ScrollReveal>
+          <PricingSection />
+        </ScrollReveal>
+
         {/* Trial booking */}
         <TrialBooking onSuccess={(formData) => setSubmittedBooking(formData)} />
       </main>
 
+      {landingVisible && !showSplash && <FloatingContact />}
       {/* Footer */}
       <ScrollReveal>
         <Footer
@@ -216,6 +227,15 @@ export default function App() {
       />
 
       {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+
+      {landingVisible && !showSplash && (
+        <ConsultationPopup
+          delay={10_000}
+          onSuccess={(formData) => {
+            console.log("Thông tin đăng ký tư vấn:", formData);
+          }}
+        />
+      )}
     </div>
   );
 }

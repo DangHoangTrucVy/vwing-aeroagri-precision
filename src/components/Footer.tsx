@@ -63,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({
                   HOTLINE TƯ VẤN 24/7 (BẤM GỌI)
                 </span>
                 <span className="text-lg font-extrabold font-mono text-slate-900 dark:text-white tracking-wide">
-                  1800 6868
+                  0965 782 358
                 </span>
               </div>
             </a>

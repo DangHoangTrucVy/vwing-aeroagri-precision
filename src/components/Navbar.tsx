@@ -154,8 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </header>
 
-      {/* Mobile Drawer Backdrop & Container */}
-      {mobileMenuOpen && (
+      
         <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="absolute top-0 inset-x-0 bg-white dark:bg-[#07131e] border-b border-slate-200 dark:border-slate-800 shadow-2xl p-4 sm:p-6 space-y-4 max-h-[88vh] overflow-y-auto">
             {/* Drawer Header */}
@@ -233,7 +232,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
         </div>
-      )}
     </>
   );
 };
