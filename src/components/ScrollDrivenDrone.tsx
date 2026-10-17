@@ -232,12 +232,12 @@ export default function ScrollDrivenDrone() {
   return (
     <>
       {/* One viewport reserved for the cinematic intro */}
-      <div aria-hidden="true" className="h-[100svh] w-full" />
+      <div aria-hidden="true" className="h-svh w-full" />
 
       {/* All intro layers ignore pointer events so the Header remains clickable */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-[60] overflow-hidden"
+        className="pointer-events-none fixed inset-0 z-60 overflow-hidden"
         style={{
           opacity: introOpacity,
           visibility: introProgress >= 1 ? "hidden" : "visible",
@@ -393,7 +393,7 @@ export default function ScrollDrivenDrone() {
       {/* Drone Canvas: does not block Header, buttons or page interactions */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-[61] overflow-hidden"
+        className="pointer-events-none fixed inset-0 z-61 overflow-hidden"
         style={{
           opacity: droneOpacity,
           transition: "opacity 250ms ease-out",

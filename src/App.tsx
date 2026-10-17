@@ -24,7 +24,7 @@ import { NewsArticle } from "./types";
 
 import ScrollDrivenDrone from "./components/ScrollDrivenDrone";
 
-
+import SplashScreen from "./components/SplashScreen";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -39,14 +39,18 @@ export default function App() {
     return false;
   });
 
+  const [showSplash, setShowSplash] = useState(true);
+  const [landingVisible, setLandingVisible] = useState(false);
+
   // Modal states
   const [isTelemetryOpen, setIsTelemetryOpen] = useState(false);
   const [isPathogenOpen, setIsPathogenOpen] = useState(false);
   const [isTerrainOpen, setIsTerrainOpen] = useState(false);
   const [isPassportOpen, setIsPassportOpen] = useState(false);
 
-  const [selectedArticle, setSelectedArticle] =
-    useState<NewsArticle | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(
+    null,
+  );
 
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [submittedBooking, setSubmittedBooking] = useState<any | null>(null);
@@ -57,6 +61,15 @@ export default function App() {
     localStorage.setItem("vwing_theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
+  useEffect(() => {
+    if (showSplash) return;
+
+    const timer = window.setTimeout(() => {
+      setLandingVisible(true);
+    }, 50);
+
+    return () => window.clearTimeout(timer);
+  }, [showSplash]);
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
   };
@@ -67,9 +80,7 @@ export default function App() {
 
     if (element) {
       element.scrollIntoView({
-        behavior: window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
           ? "auto"
           : "smooth",
         block: "start",
@@ -87,7 +98,19 @@ export default function App() {
         dark:bg-[#07131e] dark:text-slate-100
       "
     >
-       <ScrollDrivenDrone />
+      <div
+        className={`
+    transition-all duration-1200
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    ${
+      landingVisible
+        ? "translate-y-0 scale-100 opacity-100 blur-0"
+        : "translate-y-5 scale-[0.985] opacity-0 blur-sm"
+    }
+  `}
+      >
+        <ScrollDrivenDrone />
+      </div>
       {/* Navigation */}
       <Navbar
         darkMode={darkMode}
@@ -123,9 +146,7 @@ export default function App() {
 
         {/* Crop solutions */}
         <ScrollReveal delay={80}>
-          <CropSolutions
-            onOpenPlotMap={() => setIsTelemetryOpen(true)}
-          />
+          <CropSolutions onOpenPlotMap={() => setIsTelemetryOpen(true)} />
         </ScrollReveal>
 
         {/* Press and research */}
@@ -134,9 +155,7 @@ export default function App() {
         />
 
         {/* Trial booking */}
-        <TrialBooking
-          onSuccess={(formData) => setSubmittedBooking(formData)}
-        />
+        <TrialBooking onSuccess={(formData) => setSubmittedBooking(formData)} />
       </main>
 
       {/* Footer */}
@@ -187,10 +206,7 @@ export default function App() {
       />
 
       {/* Authentication modal */}
-      <AuthModal
-        isOpen={isAuthOpen}
-        onClose={() => setIsAuthOpen(false)}
-      />
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
 
       {/* Booking success modal */}
       <SuccessModal
@@ -198,6 +214,8 @@ export default function App() {
         onClose={() => setSubmittedBooking(null)}
         bookingData={submittedBooking}
       />
+
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
     </div>
   );
 }
