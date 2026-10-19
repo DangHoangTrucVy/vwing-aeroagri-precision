@@ -2,6 +2,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
+import icon from "../assets/images/icon.png";
 
 const MODEL_URL = "/models/agricultural-drone.glb";
 
@@ -430,27 +431,25 @@ export default function ScrollDrivenDrone() {
         >
           <div className="relative z-10 w-full max-w-xl text-left">
             <div className="mb-6 flex items-center gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-300/40 bg-emerald-300/10 text-emerald-300 shadow-[0_0_35px_rgba(52,211,153,0.15)] sm:h-14 sm:w-14">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-7 w-7 sm:h-8 sm:w-8"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                >
-                  <path d="M12 21V10M12 15C5 15 4 10 4 7c5 0 8 2 8 8ZM12 12c0-5 3-8 8-8 0 5-2 8-8 8Z" />
-                </svg>
-              </div>
+              <div className="flex h-30 w-18 shrink-0 items-center justify-center  overflow-hidden ">
+              <img
+                src={
+                  icon
+                } /* Sửa lại đường dẫn này trỏ đúng đến file ảnh logo/icon của bạn */
+                alt="VWing Logo"
+                className="object-cover w-full h-full"
+              />
+            </div>
 
               <span className="text-6xl font-semibold tracking-[-0.07em] text-white drop-shadow-[0_0_30px_rgba(110,231,183,0.15)] sm:text-8xl">
-                VW<span className="text-emerald-400">ING</span>
+                VW<span className="text-emerald-400">ing</span>
               </span>
             </div>
 
-            <p className="max-w-md text-xs font-medium uppercase leading-7 tracking-[0.2em] text-emerald-200/80 sm:text-sm">
-              Nông nghiệp thông minh
+            <p className="max-w-md text-xs font-medium uppercase leading-7 tracking-[0.2em] text-emerald-200/80 sm:text-xl -mt-5">
+              Hiểu vườn,
               <span className="block text-white/80">
-                Chính xác trong từng chuyến bay
+                chăm cây tốt hơn
               </span>
             </p>
 

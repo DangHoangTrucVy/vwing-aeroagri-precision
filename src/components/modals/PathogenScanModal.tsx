@@ -13,9 +13,8 @@ export const PathogenScanModal: React.FC<PathogenScanModalProps> = ({ isOpen, on
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-[#091522] text-white border border-rose-900/50 shadow-2xl">
-        {/* Header */}
+   <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-24 p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+  <div className="relative w-full max-w-4xl max-h-[82vh] overflow-y-auto rounded-3xl bg-[#091522] text-white border border-rose-900/50 shadow-2xl">
         <div className="sticky top-0 z-20 flex items-center justify-between p-5 sm:p-6 bg-[#091522]/95 backdrop-blur-md border-b border-slate-800">
           <div className="flex items-center gap-3">
             <div className="w-3 h-3 rounded-full bg-rose-500 animate-ping" />
