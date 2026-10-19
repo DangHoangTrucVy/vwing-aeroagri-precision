@@ -32,7 +32,7 @@ export const MissionTelemetryModal: React.FC<MissionTelemetryModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-28 pb-4 px-3 sm:px-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div role="dialog" aria-modal="true" aria-label="MissionTelemetry" className="fixed inset-0 z-50 flex items-start justify-center pt-28 pb-4 px-3 sm:px-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div className="relative w-full max-w-4xl max-h-[82vh] overflow-y-auto rounded-3xl bg-[#07131e] text-white border border-slate-700 shadow-2xl">
         {/* Modal Header */}
         <div className="sticky top-0 z-20 flex items-center justify-between p-4 sm:p-5 bg-[#07131e]/95 backdrop-blur-md border-b border-slate-800">
@@ -52,7 +52,7 @@ export const MissionTelemetryModal: React.FC<MissionTelemetryModalProps> = ({
           </div>
 
           <button
-            onClick={onClose}
+            aria-label="Đóng" onClick={onClose}
             className="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />

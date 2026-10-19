@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import orchardImage from '../assets/images/orchard_canopy_lidar_1791883989473.jpg';
 import {
   CheckCircle2,
   ArrowRight,
@@ -203,7 +204,7 @@ useEffect(() => {
           >
             <div className="group relative min-h-80 flex-1 overflow-hidden rounded-[28px] bg-[#10271D] shadow-xl shadow-emerald-950/10 sm:min-h-107.5 lg:min-h-125">
               <img
-                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85"
+                src={orchardImage}
                 alt="Cảnh quan nông trại xanh nhìn từ trên cao"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-125 ease-out group-hover:scale-105"

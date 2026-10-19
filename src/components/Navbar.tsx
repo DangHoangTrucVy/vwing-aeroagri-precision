@@ -1,228 +1,46 @@
-import React, { useState } from "react";
-import {
-  Sun,
-  Moon,
-  Menu,
-  X,
-  User,
-  ChevronRight,
-  Phone,
-  Radio,
-  ShieldCheck,
-} from "lucide-react";
-
-import icon from "../assets/images/icon.png";
-interface NavbarProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-  onOpenAuth: () => void;
-  onOpenDemoMission: () => void;
-  onScrollToSection: (sectionId: string) => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({
-  darkMode,
-  toggleDarkMode,
-  onOpenAuth,
-  onOpenDemoMission,
-  onScrollToSection,
-}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("home");
-
-  const navItems = [
-    { id: "home", label: "Trang chủ", target: "hero-section" },
-    { id: "about", label: "Về VWING", target: "intro-section" },
-    { id: "features", label: "Tính năng", target: "features-section" },
-    { id: "crops", label: "Giải pháp cây lâu năm", target: "crops-section" },
-    { id: "news", label: "Báo chí & Nghiên cứu", target: "news-section" },
-    { id: "contact", label: "Liên hệ", target: "booking-section" },
-  ];
-
-  const handleNavClick = (id: string, target: string) => {
-    setActiveTab(id);
-    onScrollToSection(target);
-    setMobileMenuOpen(false);
-  };
-
-  return (
-    <>
-      <header className="sticky top-0 z-100 w-full pointer-events-auto backdrop-blur-md bg-[#f8f9ff]/90 dark:bg-[#07131e]/90 border-b border-slate-200/70 dark:border-slate-800/80 transition-colors duration-200">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-3 sm:gap-6">
-          {/* Brand Logo Zone */}
-          <div
-            onClick={() => handleNavClick("home", "hero-section")}
-            className="flex items-center  cursor-pointer group shrink-0 select-none min-h-11 min-w-11"
-          >
-            {/* High-tech precision drone logo mark */}
-
-            <div className="flex h-17 w-17 shrink-0 items-center justify-center  overflow-hidden ">
-              <img
-                src={
-                  icon
-                } /* Sửa lại đường dẫn này trỏ đúng đến file ảnh logo/icon của bạn */
-                alt="VWing Logo"
-                className="object-cover w-full h-full"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-3xl tracking-tight text-emerald-900 dark:text-white leading-none flex items-center ">
-                VWing       
-              </span>
-              
-            </div>
-          </div>
-
-          {/* Navigation Links (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navItems.map((item) => {
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id, item.target)}
-                  className={`px-3.5 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? "bg-slate-200/70 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* Action Controls & Dark Mode */}
-          <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              aria-label="Chuyển chế độ sáng tối"
-              className="w-11 h-11 flex items-center justify-center rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700/60 active:scale-95"
-              title={
-                darkMode ? "Chuyển sang chế độ sáng" : "Chuyển sang chế độ tối"
-              }
-            >
-              {darkMode ? (
-                <Sun className="w-4 h-4 text-amber-400" />
-              ) : (
-                <Moon className="w-4 h-4 text-slate-700" />
-              )}
-            </button>
-
-            {/* Đăng nhập button (Desktop) */}
-            <button
-              onClick={onOpenAuth}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer min-h-11"
-            >
-              <User className="w-4 h-4 opacity-70" />
-              <span>Đăng nhập</span>
-            </button>
-
-            {/* Primary Action Button (Desktop & Tablet) */}
-            <button
-              onClick={onOpenDemoMission}
-              className="hidden xs:inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md shadow-emerald-500/25 transition-all duration-200 cursor-pointer active:scale-95 min-h-10 sm:min-h-11"
-            >
-              <span>Trải nghiệm ngay</span>
-              <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            </button>
-
-            {/* Mobile Menu Button (Touch hitbox >= 44px) */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800 active:scale-95 transition-all"
-              aria-label="Mở menu danh mục"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-        <div className="absolute top-0 inset-x-0 bg-white dark:bg-[#07131e] border-b border-slate-200 dark:border-slate-800 shadow-2xl p-4 sm:p-6 space-y-4 max-h-[88vh] overflow-y-auto">
-          {/* Drawer Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="font-extrabold text-sm text-slate-900 dark:text-white block">
-                  VWING Precision
-                </span>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold block uppercase">
-                  Menu điều hướng
-                </span>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
-              aria-label="Đóng menu"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Navigation links */}
-          <div className="space-y-1">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id, item.target)}
-                className="w-full text-left px-4 py-3.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800/80 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center justify-between min-h-12 active:bg-emerald-100 dark:active:bg-slate-800"
-              >
-                <span>{item.label}</span>
-                <ChevronRight className="w-4 h-4 opacity-40" />
-              </button>
-            ))}
-          </div>
-
-          {/* Quick Mobile Action shortcuts */}
-          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenDemoMission();
-              }}
-              className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 min-h-12 active:scale-[0.98]"
-            >
-              <Radio className="w-4 h-4 animate-pulse" />
-              <span>Trạm Viễn Thám Đắk Lắk #48</span>
-            </button>
-
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAuth();
-                }}
-                className="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-11"
-              >
-                <User className="w-3.5 h-3.5" />
-                <span>Đăng nhập</span>
-              </button>
-
-              <a
-                href="tel:18006868"
-                className="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center justify-center gap-1.5 min-h-11"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Gọi 1800 6868</span>
-              </a>
-            </div>
-          </div>
-        </div>
+import React, { useEffect, useState } from 'react';
+import { LayoutGrid, Layers3, ScanLine, Sprout, Newspaper, CreditCard, Headphones, ArrowUpRight, Menu, X, Sun, Moon, UserRound } from 'lucide-react';
+import logo from '../assets/images/icon.png';
+interface NavbarProps { darkMode: boolean; toggleDarkMode: () => void; onOpenAuth: () => void; onOpenDemoMission: () => void; onScrollToSection: (id: string) => void; }
+const items = [
+  { target: 'hero-section', label: 'Tổng quan', icon: LayoutGrid },
+  { target: 'intro-section', label: 'Về VWing', icon: Layers3 },
+  { target: 'features-section', label: 'Công nghệ', icon: ScanLine },
+  { target: 'crops-section', label: 'Giải pháp cây trồng', icon: Sprout },
+  { target: 'news-section', label: 'Góc kiến thức', icon: Newspaper },
+  { target: 'pricing-section', label: 'Gói dịch vụ', icon: CreditCard },
+];
+export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, onOpenAuth, onOpenDemoMission, onScrollToSection }) => {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('hero-section');
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]) setActive(visible[0].target.id);
+    }, { rootMargin: '-8% 0px -55% 0px', threshold: 0 });
+    [...items.map(i => i.target), 'booking-section'].forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('keydown', close);
+    return () => document.removeEventListener('keydown', close);
+  }, [open]);
+  const navigate = (id: string) => { setActive(id); setOpen(false); onScrollToSection(id); };
+  return <>
+    <header className="mobile-header"><button className="brand" onClick={() => navigate('hero-section')} aria-label="VWing — Trang chủ"><img src={logo} alt="" />VWing<span className="brand-dot">.</span></button><button className="icon-button" onClick={() => setOpen(!open)} aria-label={open ? 'Đóng menu' : 'Mở menu'} aria-expanded={open} aria-controls="main-sidebar">{open ? <X size={21} /> : <Menu size={21} />}</button></header>
+    {open && <button className="sidebar-backdrop" aria-label="Đóng menu" onClick={() => setOpen(false)} />}
+    <aside className={`sidebar ${open ? 'is-open' : ''}`} id="main-sidebar" aria-label="Điều hướng chính">
+      <button className="brand desktop-brand" onClick={() => navigate('hero-section')} aria-label="VWing — Trang chủ"><img src={logo} alt="" />VWing<span className="brand-dot">.</span></button>
+      <p className="sidebar-caption">NÔNG NGHIỆP CHÍNH XÁC</p>
+      <nav>{items.map(({ target, label, icon: Icon }) => <button key={target} className={`nav-item ${active === target ? 'is-active' : ''}`} aria-current={active === target ? 'location' : undefined} onClick={() => navigate(target)}><Icon size={19} strokeWidth={1.6} /><span>{label}</span>{target === 'features-section' && <span className="nav-count">4</span>}</button>)}</nav>
+      <div className="sidebar-bottom">
+        <button className={`nav-item ${active === 'booking-section' ? 'is-active' : ''}`} onClick={() => navigate('booking-section')}><Headphones size={19} strokeWidth={1.6} />Tư vấn & hỗ trợ</button>
+        <button className="nav-item" onClick={onOpenAuth}><UserRound size={19} strokeWidth={1.6} />Tài khoản</button>
+        <button className="nav-item" onClick={toggleDarkMode}>{darkMode ? <Sun size={19} strokeWidth={1.6} /> : <Moon size={19} strokeWidth={1.6} />}{darkMode ? 'Giao diện sáng' : 'Giao diện tối'}</button>
+        <button className="sidebar-demo" onClick={() => { setOpen(false); onOpenDemoMission(); }}><span>Vườn thông minh, trong tầm tay <ArrowUpRight size={17} /></span><strong>Khám phá VWing</strong><small>Trải nghiệm bản demo</small><div className="demo-meter" aria-hidden="true">{Array.from({ length: 25 }, (_, i) => <i key={i} className={i > 19 ? 'muted' : ''} />)}</div></button>
       </div>
-    </>
-  );
+    </aside>
+  </>;
 };

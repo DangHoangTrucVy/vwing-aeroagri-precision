@@ -14,7 +14,7 @@ export const TerrainFollowModal: React.FC<TerrainFollowModalProps> = ({ isOpen, 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div role="dialog" aria-modal="true" aria-label="TerrainFollow" className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-[#091522] text-white border border-cyan-800/60 shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 z-20 flex items-center justify-between p-5 sm:p-6 bg-[#091522]/95 backdrop-blur-md border-b border-slate-800">
@@ -31,7 +31,7 @@ export const TerrainFollowModal: React.FC<TerrainFollowModalProps> = ({ isOpen, 
           </div>
 
           <button
-            onClick={onClose}
+            aria-label="Đóng" onClick={onClose}
             className="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />

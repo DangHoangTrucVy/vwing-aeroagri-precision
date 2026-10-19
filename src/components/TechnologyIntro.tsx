@@ -1,149 +1,44 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Layers, ScanLine, Sprout, ArrowDownRight } from "lucide-react";
+import React from "react";
+import { ArrowUpRight, Layers3, ScanLine, Sprout } from "lucide-react";
 
-export const TechnologyIntro: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+const capabilities = [
+  { icon: ScanLine, label: "Quan sát từ trên cao" },
+  { icon: Layers3, label: "Hiểu dữ liệu vườn cây" },
+  { icon: Sprout, label: "Chăm sóc có cơ sở" },
+];
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -40px 0px",
-      },
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const reveal = (delay: number): React.CSSProperties => ({
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateY(0)" : "translateY(28px)",
-    transition: `opacity 800ms ease ${delay}ms, transform 800ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
-  });
-
-  return (
-    <section
-      id="intro-section"
-      ref={sectionRef}
-      className="relative mx-auto max-w-7xl overflow-hidden px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32"
-    >
-      {/* Decorative background */}
-      <div className="pointer-events-none absolute right-0 top-10 -z-10 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 -z-10 h-48 w-48 rounded-full bg-teal-400/10 blur-3xl" />
-
-      <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-12 lg:gap-8">
-        {/* Left: Main introduction */}
-        <div className="lg:col-span-7">
-          {/* Kicker */}
-          <div
-            style={reveal(0)}
-            className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-bold tracking-wider text-emerald-800 dark:border-emerald-800/70 dark:bg-emerald-950/50 dark:text-emerald-300 sm:text-sm"
-          >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 text-white shadow-sm">
-              <Layers className="h-3.5 w-3.5" />
-            </span>
-            HỆ SINH THÁI SỐ HÓA VƯỜN
-          </div>
-
-          {/* Heading */}
-          <h2
-            style={reveal(150)}
-            className="max-w-3xl text-3xl font-extrabold leading-[1.15] tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl"
-          >
-            Thấu Hiểu Từng Tán Cây.
-            <br />
-            <span className="bg-linear-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 bg-clip-text text-transparent">
-              Kiến Tạo Vườn Cây Số.
-            </span>
-          </h2>
-
-          {/* Description */}
-          <p
-            style={reveal(300)}
-            className="-mt-4 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg"
-          >
-            Khám phá sức khỏe cây trồng qua dữ liệu drone và AI, giúp quản lý
-            vườn cây hiệu quả và chính xác hơn.
+export const TechnologyIntro: React.FC = () => (
+  <section id="intro-section" className="scroll-mt-8 px-5 py-8 sm:px-8 lg:px-10">
+    <div className="rounded-[28px] border border-white/80 bg-white/65 p-6 backdrop-blur-sm sm:p-8 lg:p-10">
+      <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-12">
+        <div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#6b8175]">
+            Hệ sinh thái VWing
           </p>
-
-          {/* Supporting line */}
-          <div
-            style={reveal(450)}
-            className="mt-8 flex items-center gap-3 border-l-2 border-emerald-500 pl-4"
-          >
-            <ScanLine className="h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-            <p className="text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-200 sm:text-base">
-              Quan sát · Phân tích · Tối ưu
-            </p>
-          </div>
+          <h2 className="max-w-xl text-3xl font-medium leading-[1.18] tracking-[-0.035em] text-[#243d31] sm:text-4xl">
+            Một góc nhìn mới.
+            <br />
+            Một vườn cây thấu hiểu hơn.
+          </h2>
         </div>
-
-        {/* Right: Technology highlight */}
-        <div style={reveal(250)} className="relative lg:col-span-5">
-          <div className="relative overflow-hidden rounded-3xl border border-emerald-900/10 bg-linear-to-br from-[#0b1d25] via-[#102c31] to-[#071820] p-6 text-white shadow-[0_24px_70px_rgba(15,23,42,0.16)] sm:p-8 lg:p-9">
-            {/* Decorative rings */}
-            <div className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full border border-emerald-400/15" />
-            <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full border border-emerald-400/20" />
-
-            <div className="relative">
-              <div className="flex items-center justify-between gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-300 sm:text-xs">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                  Smart Agriculture
-                </span>
-                <Sprout className="h-6 w-6 text-emerald-400" />
-              </div>
-
-              <div className="mt-8">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
-                  DATA-DRIVEN FARMING
-                </p>
-
-                <h3 className="mt-3 text-2xl font-bold leading-snug tracking-tight sm:text-3xl">
-                  Mỗi dữ liệu
-                  <br />
-                  <span className="text-emerald-400">mở ra một góc nhìn.</span>
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-                  Kết nối drone, dữ liệu cây trồng và AI trong một hệ sinh thái
-                  thông minh.
-                </p>
-              </div>
-
-              <div className="mt-8 border-t border-white/10 pt-5">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-xs text-slate-400">Công nghệ cốt lõi</p>
-                    <p className="mt-1 text-sm font-semibold text-white sm:text-base">
-                      Remote Sensing + AI
-                    </p>
-                  </div>
-
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-emerald-400/25 bg-emerald-400/10 text-emerald-300">
-                    <ArrowDownRight className="h-5 w-5" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating accent */}
-          <div className="pointer-events-none absolute -bottom-4 -left-3 -z-10 h-24 w-24 rounded-2xl bg-emerald-500/15 blur-xl sm:-left-5" />
-        </div>
+        <p className="max-w-xl text-base leading-7 text-[#6b776f]">
+          Kết nối dữ liệu drone, bản đồ và trí tuệ nhân tạo để quan sát sức khỏe
+          cây trồng. VWing giúp bạn theo dõi từng khu vực và chủ động hơn trong
+          mỗi quyết định chăm sóc.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="mt-8 grid gap-3 border-t border-[#dce4de] pt-6 sm:grid-cols-3">
+        {capabilities.map(({ icon: Icon, label }) => (
+          <div key={label} className="flex items-center gap-3 text-sm text-[#466454]">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#e5ede5]">
+              <Icon className="h-[18px] w-[18px]" strokeWidth={1.5} aria-hidden="true" />
+            </span>
+            <span>{label}</span>
+            <ArrowUpRight className="ml-auto h-4 w-4 text-[#95a699]" aria-hidden="true" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);

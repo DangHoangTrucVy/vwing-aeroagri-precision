@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
@@ -9,7 +10,6 @@ import { PressResearch } from "./components/PressResearch";
 import { TrialBooking } from "./components/TrialBooking";
 import { Footer } from "./components/Footer";
 import { MobileBottomBar } from "./components/MobileBottomBar";
-import ScrollReveal from "./components/ScrollReveal";
 
 import { MissionTelemetryModal } from "./components/modals/MissionTelemetryModal";
 import { PathogenScanModal } from "./components/modals/PathogenScanModal";
@@ -20,33 +20,23 @@ import { AuthModal } from "./components/modals/AuthModal";
 import { SuccessModal } from "./components/modals/SuccessModal";
 
 import { activeMission } from "./data/mockData";
-import { NewsArticle } from "./types";
-
-import ScrollDrivenDrone from "./components/ScrollDrivenDrone";
-
-import SplashScreen from "./components/SplashScreen";
-
-import ConsultationPopup from "./components/ConsultationPopup";
-
-import FloatingContact from "./components/FloatingContact";
+import { NewsArticle, CropType } from "./types";
 
 import PricingSection from "./components/PricingSection";
 
 export default function App() {
+  const [selectedCrop, setSelectedCrop] = useState<CropType>('durian');
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("vwing_theme");
 
       if (saved) return saved === "dark";
 
-      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+      return false;
     }
 
     return false;
   });
-
-  const [showSplash, setShowSplash] = useState(true);
-  const [landingVisible, setLandingVisible] = useState(false);
 
   // Modal states
   const [isTelemetryOpen, setIsTelemetryOpen] = useState(false);
@@ -61,27 +51,46 @@ export default function App() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [submittedBooking, setSubmittedBooking] = useState<any | null>(null);
 
+  const modalOpen = isTelemetryOpen || isPathogenOpen || isTerrainOpen || isPassportOpen || !!selectedArticle || isAuthOpen || !!submittedBooking;
+  useEffect(() => {
+    if (!modalOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const returnFocus = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = 'hidden';
+    const dialog = document.querySelector<HTMLElement>('[role="dialog"]');
+    const focusable = () => Array.from(dialog?.querySelectorAll<HTMLElement>('button, a[href], input, select, textarea, [tabindex="0"]') || []).filter(el => el.getClientRects().length && !el.hasAttribute('disabled'));
+    focusable()[0]?.focus();
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsTelemetryOpen(false); setIsPathogenOpen(false); setIsTerrainOpen(false); setIsPassportOpen(false); setSelectedArticle(null); setIsAuthOpen(false); setSubmittedBooking(null);
+      }
+      if (event.key === 'Tab') {
+        const elements = focusable();
+        const first = elements[0]; const last = elements[elements.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
+    };
+    document.addEventListener('keydown', handleKey);
+    return () => { document.body.style.overflow = previousOverflow; document.removeEventListener('keydown', handleKey); returnFocus?.focus(); };
+  }, [modalOpen]);
+
   // Sync dark mode
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
     localStorage.setItem("vwing_theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  useEffect(() => {
-    if (showSplash) return;
-
-    const timer = window.setTimeout(() => {
-      setLandingVisible(true);
-    }, 50);
-
-    return () => window.clearTimeout(timer);
-  }, [showSplash]);
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
   };
 
   // Smooth scrolling for navigation
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'hero-section') {
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      return;
+    }
     const element = document.getElementById(sectionId);
 
     if (element) {
@@ -95,28 +104,7 @@ export default function App() {
   };
 
   return (
-    <div
-      className="
-        min-h-screen
-        bg-[#f8f9ff] text-[#0b1c30]
-        transition-colors duration-300
-        selection:bg-emerald-500 selection:text-white
-        dark:bg-[#07131e] dark:text-slate-100
-      "
-    >
-      <div
-        className={`
-    transition-all duration-1200
-    ease-[cubic-bezier(0.22,1,0.36,1)]
-    ${
-      landingVisible
-        ? "translate-y-0 scale-100 opacity-100 blur-0"
-        : "translate-y-5 scale-[0.985] opacity-0 blur-sm"
-    }
-  `}
-      >
-        <ScrollDrivenDrone />
-      </div>
+    <div className="vwing-app">
       {/* Navigation */}
       <Navbar
         darkMode={darkMode}
@@ -126,57 +114,57 @@ export default function App() {
         onScrollToSection={scrollToSection}
       />
 
-      {/* Main content */}
-      <main className="space-y-2 sm:space-y-4">
+      <div className="workspace-content">
+        <header className="workspace-header">
+          <div><h2>Tổng quan</h2><p>Chào bạn, cùng chăm một khu vườn tốt hơn.</p></div>
+          <div className="workspace-tools"><span className="workspace-tag">VWing / Nông nghiệp số</span><button className="header-demo" onClick={() => setIsTelemetryOpen(true)}>Trải nghiệm demo <ArrowUpRight size={14} /></button><button className="account-button" onClick={() => setIsAuthOpen(true)} aria-label="Mở tài khoản">VW</button></div>
+        </header>
+      <main>
         {/* Hero is visible immediately */}
         <HeroSection
           onConsultClick={() => scrollToSection("booking-section")}
           onExploreFeatures={() => scrollToSection("features-section")}
           onOpenLiveTelemetry={() => setIsTelemetryOpen(true)}
+          onExploreCrop={(crop) => { setSelectedCrop(crop); scrollToSection('crops-section'); }}
         />
 
         {/* Technology introduction */}
-        <ScrollReveal>
+
           <TechnologyIntro />
-        </ScrollReveal>
 
         {/* Technology showcases */}
-        <ScrollReveal delay={80}>
+
           <FeatureShowcase
             onOpenLidarModal={() => setIsTelemetryOpen(true)}
             onOpenPathogenModal={() => setIsPathogenOpen(true)}
             onOpenTerrainModal={() => setIsTerrainOpen(true)}
             onOpenPassportModal={() => setIsPassportOpen(true)}
           />
-        </ScrollReveal>
 
         {/* Crop solutions */}
-        <ScrollReveal delay={80}>
-          <CropSolutions onOpenPlotMap={() => setIsTelemetryOpen(true)} />
-        </ScrollReveal>
+
+          <CropSolutions onOpenPlotMap={() => setIsTelemetryOpen(true)} selectedCrop={selectedCrop} onSelectCrop={setSelectedCrop} />
 
         {/* Press and research */}
         <PressResearch
           onSelectArticle={(article) => setSelectedArticle(article)}
         />
 
-        <ScrollReveal>
           <PricingSection />
-        </ScrollReveal>
 
         {/* Trial booking */}
         <TrialBooking onSuccess={(formData) => setSubmittedBooking(formData)} />
       </main>
 
-      {landingVisible && !showSplash && <FloatingContact />}
       {/* Footer */}
-      <ScrollReveal>
+
         <Footer
           onNavClick={scrollToSection}
           onOpenTelemetry={() => setIsTelemetryOpen(true)}
           onOpenAuth={() => setIsAuthOpen(true)}
         />
-      </ScrollReveal>
+
+      </div>
 
       {/* Mobile navigation */}
       <MobileBottomBar
@@ -226,16 +214,6 @@ export default function App() {
         bookingData={submittedBooking}
       />
 
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
-
-      {landingVisible && !showSplash && (
-        <ConsultationPopup
-          delay={10_000}
-          onSuccess={(formData) => {
-            console.log("Thông tin đăng ký tư vấn:", formData);
-          }}
-        />
-      )}
     </div>
   );
 }

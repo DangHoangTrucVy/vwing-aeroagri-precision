@@ -1,174 +1,80 @@
+import { ArrowUpRight, Check } from "lucide-react";
 
 const plans = [
   {
     name: "Gói cơ bản S",
     subtitle: "Dành cho vườn dưới 1 ha",
-    description:
-      "Giải pháp quản lý vườn cơ bản, phù hợp với quy mô canh tác nhỏ.",
+    description: "Giải pháp quản lý vườn cơ bản, phù hợp với quy mô canh tác nhỏ.",
     price: "25.000đ",
     unit: "/ha/tháng",
-    features: [
-      "Đầy đủ tính năng cơ bản",
-      "Tư vấn và hỗ trợ kỹ thuật thiết lập vườn",
-    ],
+    features: ["Đầy đủ tính năng cơ bản", "Tư vấn và hỗ trợ kỹ thuật thiết lập vườn"],
     featured: false,
   },
   {
     name: "Gói cơ bản L",
     subtitle: "Dành cho vườn từ 1 ha",
-    description:
-      "Quản lý vườn hiệu quả với mức chi phí theo diện tích canh tác.",
+    description: "Quản lý vườn hiệu quả với mức chi phí theo diện tích canh tác.",
     price: "15.000đ",
     unit: "/ha/tháng",
-    features: [
-      "Đầy đủ tính năng cơ bản",
-      "Tư vấn và hỗ trợ kỹ thuật thiết lập vườn",
-    ],
+    features: ["Đầy đủ tính năng cơ bản", "Tư vấn và hỗ trợ kỹ thuật thiết lập vườn"],
     featured: false,
   },
   {
     name: "Gói nâng cao",
     subtitle: "Tối ưu quản lý nông trại",
-    description:
-      "Tăng cường hỗ trợ công nghệ và tối ưu chi phí vận hành vườn.",
+    description: "Tăng cường hỗ trợ công nghệ và tối ưu chi phí vận hành vườn.",
     price: "799.000đ",
     unit: "/năm",
-    features: [
-      "Tối ưu chi phí vận hành",
-      "Hỗ trợ AI nâng cao",
-      "Hỗ trợ kỹ thuật và thiết lập",
-      "Hướng dẫn vận hành trực tiếp tại vườn",
-    ],
+    features: ["Tối ưu chi phí vận hành", "Hỗ trợ AI nâng cao", "Hỗ trợ kỹ thuật và thiết lập", "Hướng dẫn vận hành trực tiếp tại vườn"],
     featured: true,
   },
 ];
 
-function CheckIcon({ featured = false }: { featured?: boolean }) {
-  return (
-    <span
-      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-        featured
-          ? "bg-blue-500 text-white"
-          : "bg-emerald-500/15 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-400"
-      }`}
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5">
-        <path
-          d="m4 10 4 4 8-8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
-  );
-}
-
 export function PricingSection() {
+  const scrollToBooking = () => {
+    document.getElementById("booking-section")?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      block: "start",
+    });
+  };
+
   return (
-    <section
-      id="pricing-section"
-      className="relative w-full overflow-hidden bg-[#F7F8F5] px-5 py-16 text-slate-950 transition-colors duration-300 dark:bg-[#07131E] dark:text-slate-100 sm:px-8 sm:py-20 lg:px-12 lg:py-24 xl:px-16"
-    >
-      <div className="mx-auto w-full max-w-360">
-        {/* Heading */}
-        <div className="mb-10 lg:mb-12">
-          <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-400 sm:text-sm">
-            VWING · PRICING
-          </p>
+    <section id="pricing-section" className="scroll-mt-8 px-5 py-8 sm:px-8 lg:px-10">
+      <div className="mb-6">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#6b8175]">Đầu tư cho vườn cây</p>
+        <h2 className="text-2xl font-medium tracking-[-0.03em] text-[#243d31] sm:text-3xl">Một giải pháp phù hợp với bạn.</h2>
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-[#718077]">Lựa chọn theo quy mô canh tác và nhu cầu quản lý. Đội ngũ VWing luôn sẵn sàng tư vấn thêm.</p>
+      </div>
 
-          <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
-            Bảng giá giải pháp VWing
-          </h2>
+      <div className="grid gap-4 md:grid-cols-3">
+        {plans.map((plan) => (
+          <article key={plan.name} className={`flex min-w-0 flex-col rounded-[28px] border p-5 lg:p-6 ${plan.featured ? "border-[#426f5b] bg-[#426f5b] text-white" : "border-white/80 bg-white/70 text-[#243d31] backdrop-blur-sm"}`}>
+            <div className="flex min-h-7 flex-wrap items-center justify-between gap-2">
+              <p className="text-sm font-medium">{plan.name}</p>
+              {plan.featured && <span className="rounded-full bg-[#c8dcaa] px-2.5 py-1 text-[10px] font-medium text-[#426044]">Nâng cao</span>}
+            </div>
+            <h3 className="mt-5 text-xl font-medium leading-snug tracking-tight">{plan.subtitle}</h3>
+            <p className={`mt-3 text-sm leading-6 ${plan.featured ? "text-[#ceddd2]" : "text-[#78857b]"}`}>{plan.description}</p>
 
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-            Lựa chọn giải pháp phù hợp với quy mô canh tác và nhu cầu
-            quản lý nông trại của bạn.
-          </p>
-        </div>
+            <div className={`my-6 border-y py-5 ${plan.featured ? "border-white/15" : "border-[#dfe7de]"}`}>
+              <span className="block text-3xl font-medium tracking-[-0.045em]">{plan.price}</span>
+              <span className={`mt-1 block text-xs ${plan.featured ? "text-[#c1d2c4]" : "text-[#8b978a]"}`}>{plan.unit}</span>
+            </div>
 
-        {/* Pricing cards */}
-        <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
-          {plans.map((plan) => (
-            <article
-              key={plan.name}
-              className={`relative flex h-full min-w-0 flex-col rounded-3xl border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-7 lg:p-8 ${
-                plan.featured
-                  ? "border-blue-300 bg-linear-to-b from-white to-blue-50 shadow-md shadow-blue-900/5 dark:border-blue-500/50 dark:from-[#122438] dark:to-[#0D1B2C] dark:shadow-blue-950/20"
-                  : "border-slate-200 bg-white shadow-sm shadow-slate-900/5 dark:border-slate-700 dark:bg-[#0D1D2A] dark:shadow-black/10"
-              }`}
-            >
-              {/* Plan name */}
-              <div className="flex min-h-8 items-center justify-between gap-2">
-                <span
-                  className={`text-sm font-bold ${
-                    plan.featured
-                      ? "text-blue-700 dark:text-blue-300"
-                      : "text-slate-900 dark:text-slate-100"
-                  }`}
-                >
-                  {plan.name}
-                </span>
+            <ul className="flex-1 space-y-3">
+              {plan.features.map((feature) => (
+                <li key={feature} className={`flex items-start gap-2.5 text-xs leading-6 ${plan.featured ? "text-[#d9e5dc]" : "text-[#6e7d70]"}`}>
+                  <Check className={`mt-1 h-4 w-4 shrink-0 ${plan.featured ? "text-[#c8dcaa]" : "text-[#6d926d]"}`} strokeWidth={1.75} aria-hidden="true" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
 
-                {plan.featured && (
-                  <span className="rounded-full bg-blue-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-700 dark:bg-blue-400/15 dark:text-blue-300 sm:text-xs">
-                    Nâng cao
-                  </span>
-                )}
-              </div>
-
-              {/* Title and description */}
-              <h3 className="mt-7 text-2xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-3xl">
-                {plan.subtitle}
-              </h3>
-
-              <p className="mt-3 min-h-14 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                {plan.description}
-              </p>
-
-              {/* Price */}
-              <div className="mt-6 border-t border-slate-200/80 pt-6 dark:border-slate-700">
-                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <span className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
-                    {plan.price}
-                  </span>
-
-                  <span className="text-sm text-slate-500 dark:text-slate-400">
-                    {plan.unit}
-                  </span>
-                </div>
-              </div>
-
-              {/* Features */}
-              <ul className="mt-7 flex-1 space-y-4">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-3 text-sm leading-6 text-slate-700 dark:text-slate-300"
-                  >
-                    <CheckIcon featured={plan.featured} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Bottom label */}
-              <div
-                className={`mt-8 rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${
-                  plan.featured
-                    ? "bg-blue-600 text-white hover:bg-blue-700"
-                    : "border border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-[#142737] dark:text-slate-200"
-                }`}
-              >
-                {plan.featured
-                  ? "Giải pháp nâng cao"
-                  : "Giải pháp cơ bản"}
-              </div>
-            </article>
-          ))}
-        </div>
+            <button type="button" onClick={scrollToBooking} aria-label={`Đăng ký tư vấn ${plan.name.toLowerCase()}`} className={`mt-7 flex min-h-11 w-full items-center justify-between gap-2 rounded-full px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 ${plan.featured ? "bg-[#d4e4bf] text-[#385640] hover:bg-[#e1edcf] focus-visible:outline-white" : "bg-[#e8eee2] text-[#4e7053] hover:bg-[#dce7d3] focus-visible:outline-[#426f5b]"}`}>
+              Đăng ký tư vấn<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </button>
+          </article>
+        ))}
       </div>
     </section>
   );
