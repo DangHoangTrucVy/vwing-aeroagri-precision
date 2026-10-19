@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, ArrowUpRight, ShieldCheck } from "lucide-react";
+import logo from "../assets/images/icon.png";
 
 interface FooterProps {
   onNavClick: (sectionId: string) => void;
@@ -18,30 +19,22 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand & Hotline */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-emerald-600/30 bg-emerald-500/10 text-emerald-600 shadow-[0_4px_14px_rgba(16,185,129,0.10)]">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-7 w-7"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 21V10" />
-                  <path d="M12 15C5 15 4 10 4 7c5 0 8 2 8 8Z" />
-                  <path d="M12 12c0-5 3-8 8-8 0 5-2 8-8 8Z" />
-                </svg>
-              </div>
-              <div>
-                <span className="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white leading-none block">
-                  VWING
-                </span>
-                <span className="text-[10px] font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase mt-0.5 block">
-                  AEROAGRI PRECISION
-                </span>
-              </div>
+            <div className="flex items-center -mt-10">
+               <div className="flex h-25 w-20 shrink-0 items-center justify-center  overflow-hidden ">
+              <img
+                src={
+                  logo
+                } /* Sửa lại đường dẫn này trỏ đúng đến file ảnh logo/icon của bạn */
+                alt="VWing Logo"
+                className="object-cover w-full h-full"
+              />
+            </div>
+              <div className="flex flex-col">
+              <span className="font-extrabold text-base sm:text-5xl tracking-tight text-emerald-900 dark:text-white leading-none flex items-center ">
+                VWing       
+              </span>
+              
+            </div>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">

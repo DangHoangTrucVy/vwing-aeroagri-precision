@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import icon from "../assets/images/icon.png";
 type SplashScreenProps = {
   onComplete: () => void;
 };
@@ -67,24 +67,20 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
         <div className="mb-10 flex flex-col items-center">
           {/* Logo icon */}
           <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-400/25 bg-emerald-400/6 text-emerald-400 shadow-[0_0_35px_rgba(16,185,129,0.12)]">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="h-8 w-8"
-              stroke="currentColor"
-              strokeWidth="1.7"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 21V12" />
-              <path d="M12 15C5 15 4 10 4 7c5 0 8 2 8 8Z" />
-              <path d="M12 12c0-5 3-8 8-8 0 5-2 8-8 8Z" />
-            </svg>
+            <div className="flex h-30 w-18 shrink-0 items-center justify-center  overflow-hidden ">
+              <img
+                src={
+                  icon
+                } /* Sửa lại đường dẫn này trỏ đúng đến file ảnh logo/icon của bạn */
+                alt="VWing Logo"
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
 
           {/* VWing brand */}
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-            VW<span className="text-emerald-400">ING</span>
+            VW<span className="text-emerald-400">ing</span>
           </h1>
 
           <p className="mt-2 text-center text-[10px] font-medium  text-emerald-400 sm:text-xs">

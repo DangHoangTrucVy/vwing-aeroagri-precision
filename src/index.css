@@ -144,3 +144,51 @@
     animation: none;
   }
 }
+
+@layer base {
+  /* Khai báo font chính Be Vietnam Pro */
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    src: url('/fonts/BeVietnamPro-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    src: url('/fonts/BeVietnamPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    src: url('/fonts/BeVietnamPro-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    src: url('/fonts/BeVietnamPro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    src: url('/fonts/BeVietnamPro-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Thiết lập mặc định cho toàn bộ trang web dùng font này */
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+}

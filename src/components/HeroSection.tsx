@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import daklakImage from "../assets/images/daklak.png";
 import heroDroneImage from "../assets/images/hero_drone_orchard_1791883988500.jpg";
+import logoImage from "../assets/images/icon.png";
 interface HeroSectionProps {
   onConsultClick: () => void;
   onExploreFeatures: () => void;
@@ -140,27 +141,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="grid grid-cols-1 items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Headlines and calls to action */}
             <div className="space-y-5 sm:space-y-6 lg:col-span-7 lg:space-y-8">
-              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-slate-200 backdrop-blur-md sm:text-xs">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
-                <span className="truncate">
-                  #1 NỀN TẢNG DRONE CÂY LÂU NĂM TẠI VN
+              {/* Logo Wing và dòng chữ Nông nghiệp chính xác */}
+              <div className="flex flex-col items-start gap-1">
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 sm:text-xs">
+                  Nông nghiệp chính xác
                 </span>
+                <div className="mb-6 flex items-center gap-4">
+              <div className="flex h-50 w-30 shrink-0 items-center justify-center  overflow-hidden ">
+              <img
+                src={
+                  logoImage
+                } /* Sửa lại đường dẫn này trỏ đúng đến file ảnh logo/icon của bạn */
+                alt="VWing Logo"
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+              <span className="text-8xl font-semibold tracking-[-0.07em] text-emerald-400 drop-shadow-[0_0_30px_rgba(110,231,183,0.15)] sm:text-8xl">
+                VWing
+              </span>
+            </div>
               </div>
 
-              <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.14] tracking-tight text-white text-balance sm:text-4xl md:text-5xl lg:text-5xl xl:text-[56px]">
-                Số Hóa Dữ Liệu,
+              {/* Tiêu đề mới */}
+              <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.3] tracking-tight text-white text-balance sm:text-4xl md:text-5xl lg:text-5xl xl:text-[56px] -mt-15">
+                Hiểu vườn,
                 <br />
-                <span className="bg-linear-to-r from-white via-slate-100 to-emerald-400 bg-clip-text text-transparent">
-                  Kiến Tạo Nông Nghiệp
+                <span className="bg-linear-to-r from-emerald-300 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
+                 chăm cây tốt hơn
                 </span>
-                <br />
-                Bền Vững
               </h1>
 
+              {/* Đoạn văn mô tả mới */}
               <p className="max-w-xl text-sm font-normal leading-relaxed text-slate-300 sm:text-base lg:text-lg">
-                Nâng tầm hiệu suất vườn sầu riêng, cà phê và hồ tiêu bằng công
-                nghệ bản đồ viễn thám đa quang phổ NDVI, quét 3D tán dốc và chẩn
-                đoán nấm bệnh chính xác theo từng gốc cây.
+                Ứng dụng dữ liệu drone và AI để quản lý vườn cây, phát hiện sớm
+                dấu hiệu bệnh, hỗ trợ ra quyết định cho nhà vườn.
               </p>
 
               <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center">
@@ -184,7 +199,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* Floating live NDVI telemetry card */}
+            {/* Floating live NDVI telemetry card giữ nguyên */}
             <div className="flex w-full justify-center lg:col-span-5 lg:justify-end lg:pt-8">
               <button
                 type="button"
@@ -290,7 +305,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
             </div>
             <p className="text-2xl leading-snug text-slate-500 sm:text-sm">
-              Trang trại quy mô lớn 
+              Trang trại quy mô lớn
             </p>
           </div>
 
@@ -304,7 +319,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
             </div>
             <p className="text-2xl  leading-snug text-slate-500 sm:text-sm">
-              Độ chính xác 
+              Độ chính xác
             </p>
           </div>
         </div>
