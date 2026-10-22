@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import icon from "../assets/images/icon.png";
+import icon from "../assets/images/logoV.png";
 type SplashScreenProps = {
   onComplete: () => void;
 };
@@ -41,7 +41,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       className={`
     fixed inset-0 z-100
     flex min-h-svh items-center justify-center
-    overflow-hidden bg-[#010b09] text-white
+    overflow-hidden bg-[#1b2220] text-white
     transition-all duration-850 ease-[cubic-bezier(0.22,1,0.36,1)]
     ${
       isExiting
@@ -65,25 +65,22 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       {/* Nội dung loading */}
       <div className="relative z-10 w-[min(420px,calc(100%-40px))]">
         <div className="mb-10 flex flex-col items-center">
-          {/* Logo icon */}
-          <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-400/25 bg-emerald-400/6 text-emerald-400 shadow-[0_0_35px_rgba(16,185,129,0.12)]">
-            <div className="flex h-30 w-18 shrink-0 items-center justify-center  overflow-hidden ">
-              <img
-                src={
-                  icon
-                } /* Sửa lại đường dẫn này trỏ đúng đến file ảnh logo/icon của bạn */
-                alt="VWing Logo"
-                className="object-cover w-full h-full"
-              />
-            </div>
+          {/* Logo icon - Căn giữa tuyệt đối bằng flex và tăng kích thước khung/ảnh */}
+          <div className="flex h-56 w-56 items-center justify-center overflow-hidden">
+            <img
+              src={icon}
+              alt=""
+              style={{
+                height: "380px", // Tăng kích thước ảnh bự lên tùy ý
+                width: "auto",
+                maxWidth: "none",
+                objectFit: "contain",
+                marginTop: "80px",
+              }}
+            />
           </div>
 
-          {/* VWing brand */}
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-            VW<span className="text-emerald-400">ing</span>
-          </h1>
-
-          <p className="mt-2 text-center text-[10px] font-medium  text-emerald-400 sm:text-xs">
+          <p className="mt-2 text-center text-[10px] font-medium text-emerald-400 sm:text-xs">
             Phát triển thông minh hơn cùng VWING
           </p>
         </div>

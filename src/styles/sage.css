@@ -22,25 +22,24 @@
   --color-slate-950: #152219;
 }
 
-:root { color-scheme: light; --canvas: #e9eeea; --surface: rgba(255,255,255,.72); --sidebar: #f1f4f1; --ink: #202c26; --muted: #748078; --forest: #3c6655; --line: rgba(77,105,85,.12); }
+:root { color-scheme: light; --canvas: #e9eeea; --surface: rgba(255,255,255,.72); --sidebar: #f1f4f1; --ink: #2d3d35; --muted: #748078; --forest: #3c6655; --line: rgba(77,105,85,.12); }
 html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 body { margin: 0; background: #94b693; color: var(--ink); }
 button, a, input, select { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 3px solid #799954; outline-offset: 4px; }
 .vwing-app { width: calc(100% - 64px); margin: 28px auto; padding: 16px; max-width: 1720px; min-height: calc(100vh - 56px); background: var(--canvas); border: 1px solid rgba(255,255,255,.5); border-radius: 30px; }
-.sidebar { position: fixed; top: 45px; bottom: 45px; width: 226px; z-index: 40; padding: 25px 14px 14px; display: flex; flex-direction: column; background: var(--sidebar); border-radius: 25px; overflow-y: auto; }
+.sidebar { overflow: hidden;position: fixed; top: 45px; bottom: 45px; width: 226px; z-index: 40; padding: 25px 14px 14px; display: flex; flex-direction: column; background: var(--sidebar); border-radius: 25px; overflow-y: auto; }
 .brand { display: flex; align-items: center; font-size: 27px; font-weight: 600; letter-spacing: -1.2px; color: var(--ink); gap: 7px; text-align: left; }
-.brand img { width: 42px; height: 42px; object-fit: contain; }
 .brand-dot { color: #729774; margin-left: -7px; }
 .desktop-brand { padding-left: 10px; }
-.sidebar-caption { font-size: 8px; letter-spacing: 1.4px; color: var(--muted); padding: 12px 15px 32px; }
+
 .sidebar nav { display: grid; gap: 7px; }
 .nav-item { width: 100%; border: 0; background: transparent; display: flex; align-items: center; gap: 12px; text-align: left; padding: 13px 16px; border-radius: 30px; font-size: 12px; color: var(--muted); transition: background .2s, color .2s; min-height: 45px; }
 .nav-item:hover { background: rgba(255,255,255,.5); color: var(--ink); }
 .nav-item.is-active { background: white; color: var(--ink); }
 .nav-count { margin-left: auto; border-radius: 50%; background: #e7ece7; width: 20px; height: 20px; display: grid; place-items: center; font-size: 10px; }
-.sidebar-bottom { margin-top: auto; padding-top: 50px; }
+.sidebar-bottom { margin-top: -45px; padding-top: 50px; }
 .sidebar-demo { display: block; background: var(--forest); color: #f4f8ef; padding: 17px; border-radius: 20px; text-align: left; width: 100%; margin-top: 12px; }
 .sidebar-demo > span { display: flex; gap: 5px; align-items: center; font-size: 9px; color: #d2e1d3; }
 .sidebar-demo strong { display: block; font-size: 18px; font-weight: 500; margin-top: 15px; letter-spacing: -.6px; }
@@ -168,7 +167,7 @@ html:not(.dark) .vwing-app > [role="dialog"] [class*="text-cyan-"] { color: #387
 html:not(.dark) .vwing-app > [role="dialog"] [class*="text-yellow-"] { color: #8a742b; }
 html:not(.dark) .vwing-app > [role="dialog"] > div > .sticky h3 { font-family: inherit; font-size: 17px; font-weight: 500; }
 
-.dark { color-scheme: dark; --canvas: #202c25; --surface: rgba(43,59,49,.87); --sidebar: #25342b; --ink: #e2eae0; --muted: #a4b4a6; --forest: #88af8d; --line: rgba(175,202,177,.15); }
+.dark { color-scheme: dark; --canvas: #202c25; --surface: rgba(84, 108, 93, 0.87); --sidebar: #506759; --ink: #e2eae0; --muted: #a4b4a6; --forest: #88af8d; --line: rgba(175,202,177,.15); }
 .dark body { background: #1b2d23; }
 .dark .nav-item.is-active { background: #3d5142; }
 .dark .nav-item:hover { background: #334638; }

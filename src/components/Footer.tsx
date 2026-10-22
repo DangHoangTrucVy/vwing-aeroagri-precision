@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenAuth,
 }) => {
   return (
-    <footer className="mt-12 sm:mt-16 border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-[#07131e] text-slate-600 dark:text-slate-300 transition-colors duration-200 pb-16 lg:pb-0">
+    <footer className="mt-12 sm:mt-16 border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-[#384858] text-slate-600 dark:text-slate-300 transition-colors duration-200 pb-16 lg:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand & Hotline */}

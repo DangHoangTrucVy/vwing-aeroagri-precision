@@ -18,7 +18,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose, boo
 
   return (
     <div role="dialog" aria-modal="true" aria-label="Success" className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg rounded-3xl bg-white dark:bg-[#0c1a26] text-slate-900 dark:text-white p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
+      <div className="relative w-full max-w-lg rounded-3xl bg-white dark:bg-[#5d6b78] text-slate-900 dark:text-white p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
         <button
           aria-label="Đóng" onClick={onClose}
           className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
