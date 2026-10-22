@@ -23,6 +23,7 @@ import { activeMission } from "./data/mockData";
 import { NewsArticle, CropType } from "./types";
 
 import PricingSection from "./components/PricingSection";
+import SplashScreen from "./components/SplashScreen";
 
 export default function App() {
   const [selectedCrop, setSelectedCrop] = useState<CropType>('durian');
@@ -105,6 +106,9 @@ export default function App() {
 
   return (
     <div className="vwing-app">
+
+      <SplashScreen onComplete={() => { /* Không tự bật form nữa nếu không muốn */ }} />
+
       {/* Navigation */}
       <Navbar
         darkMode={darkMode}
@@ -205,7 +209,12 @@ export default function App() {
       />
 
       {/* Authentication modal */}
-      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
+      {/* Authentication modal */}
+      <AuthModal 
+        isOpen={isAuthOpen} 
+        onClose={() => setIsAuthOpen(false)} 
+        onReopen={() => setIsAuthOpen(true)} 
+      />
 
       {/* Booking success modal */}
       <SuccessModal

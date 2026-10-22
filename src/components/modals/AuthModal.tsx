@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
-import { X, Lock, Mail, CheckCircle2, UserCheck, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Lock, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onReopen?: () => void; // Thêm callback để gọi mở lại form
 }
 
-export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
+export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onReopen }) => {
   const [email, setEmail] = useState('chuvuon.krongpac@vwing.vn');
   const [password, setPassword] = useState('••••••••••••');
   const [loggedIn, setLoggedIn] = useState(false);
+
+  // Tự động bật lại form sau 1 phút (60000ms) kể từ khi modal ĐÓNG
+  useEffect(() => {
+    if (isOpen) return; // Nếu đang mở thì không đếm giờ
+
+    const timer = setTimeout(() => {
+      if (onReopen) {
+        onReopen();
+      }
+    }, 30000); // 1 phút = 60.000 ms
+
+    return () => clearTimeout(timer);
+  }, [isOpen, onReopen]);
 
   if (!isOpen) return null;
 
@@ -24,7 +38,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div role="dialog" aria-modal="true" aria-label="Auth" className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md rounded-3xl bg-white dark:bg-[#0c1a26] text-slate-900 dark:text-white p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl">
+      <div className="relative w-full max-w-md rounded-3xl bg-white dark:bg-[#0a1b2a] text-slate-900 dark:text-white p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
           <div>
